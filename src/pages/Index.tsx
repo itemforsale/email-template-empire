@@ -49,20 +49,8 @@ export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
-  const [votes, setVotes] = useState<{ [key: string]: number }>({});
-
-  const handleVote = (templateId: string) => {
-    setVotes(prevVotes => ({
-      ...prevVotes,
-      [templateId]: (prevVotes[templateId] || 0) + 1
-    }));
-  };
 
   const filteredTemplates = templates
-    .map(template => ({
-      ...template,
-      votes: votes[template.id] || 0
-    }))
     .filter((template) => {
       const matchesSearch =
         template.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -70,8 +58,7 @@ export default function Index() {
       const matchesCategory = !selectedCategory || template.category === selectedCategory;
       const matchesPlatform = !selectedPlatform || template.platform === selectedPlatform;
       return matchesSearch && matchesCategory && matchesPlatform;
-    })
-    .sort((a, b) => b.votes - a.votes);
+    });
 
   const totalTemplates = templates.length;
 
@@ -206,7 +193,6 @@ export default function Index() {
               <TemplateCard 
                 key={template.id} 
                 template={template} 
-                onVote={handleVote}
               />
             ))}
           </div>
