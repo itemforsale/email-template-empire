@@ -13,6 +13,7 @@ import { nicheMarketsTemplates } from './categories/niche-markets';
 import { expiredPremiumTemplates } from './categories/expired-premium';
 import { problemSolutionTemplates } from './categories/problem-solution';
 import { emotionalAppealTemplates } from './categories/emotional-appeal';
+import { followUpTemplates } from './categories/follow-up';
 
 export const emailTemplates: Template[] = [
   ...directOfferTemplates,
@@ -28,5 +29,6 @@ export const emailTemplates: Template[] = [
   ...nicheMarketsTemplates,
   ...expiredPremiumTemplates,
   ...problemSolutionTemplates,
-  ...emotionalAppealTemplates
+  ...emotionalAppealTemplates,
+  ...followUpTemplates
 ];
