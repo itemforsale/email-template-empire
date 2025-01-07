@@ -1,5 +1,13 @@
 import { Mail, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export function CommunityLinks() {
   return (
@@ -14,15 +22,38 @@ export function CommunityLinks() {
         <span className="text-sm font-medium">Join our X Community</span>
       </a>
       <div className="h-4 w-px bg-border" />
-      <Button
-        variant="outline"
-        size="default"
-        className="bg-background shadow-md hover:bg-primary hover:text-primary-foreground"
-        onClick={() => window.open('https://buy.stripe.com/eVa5kJ8MlaMadGM5kv', '_blank')}
-      >
-        <Heart className="w-4 h-4 mr-2" />
-        Support Us
-      </Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            variant="outline"
+            size="default"
+            className="bg-background shadow-md hover:bg-primary hover:text-primary-foreground"
+          >
+            <Heart className="w-4 h-4 mr-2" />
+            Support Us
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Support Our Project</DialogTitle>
+            <DialogDescription>
+              Your support helps us maintain and improve our free templates. Thank you for considering a donation!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-4">
+            <p className="text-sm text-muted-foreground">
+              By supporting us, you help maintain this free resource and enable us to create more valuable content for the community.
+            </p>
+            <Button 
+              onClick={() => window.open('https://buy.stripe.com/eVa5kJ8MlaMadGM5kv', '_blank')}
+              className="w-full"
+            >
+              <Heart className="w-4 h-4 mr-2" />
+              Proceed to Donation
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
       <div className="h-4 w-px bg-border" />
       <a
         href="mailto:sam@wizard.uk"
