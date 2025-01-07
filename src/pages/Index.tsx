@@ -2,9 +2,19 @@ import { useState } from "react";
 import { templates, categories, platforms } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Globe } from "lucide-react";
+import { Search, Globe, X } from "lucide-react"; // Added X import
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TemplateCard } from "@/components/TemplateCard";
+
+// Add the getPlatformDisplay function
+const getPlatformDisplay = (platform: string): string => {
+  const displayNames: { [key: string]: string } = {
+    'email': 'Email',
+    'linkedin': 'LinkedIn',
+    'twitter': 'Twitter/X'
+  };
+  return displayNames[platform] || platform;
+};
 
 const FloatingDomains = () => {
   const domains = [
