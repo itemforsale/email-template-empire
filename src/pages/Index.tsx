@@ -28,7 +28,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-8">
+    <div className="min-h-screen bg-white px-4 py-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900">
@@ -94,7 +94,7 @@ export default function Index() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredTemplates.map((template) => (
-            <div key={template.id} className="template-card">
+            <div key={template.id} className="template-card bg-white shadow-sm">
               <button
                 onClick={() => copyToClipboard(template.content)}
                 className="copy-button"
@@ -111,7 +111,7 @@ export default function Index() {
               <h3 className="mb-2 text-lg font-semibold text-gray-900">
                 {template.title}
               </h3>
-              <div className="template-preview">
+              <div className="template-preview bg-gray-50">
                 <pre className="whitespace-pre-wrap font-sans">
                   {template.content}
                 </pre>
