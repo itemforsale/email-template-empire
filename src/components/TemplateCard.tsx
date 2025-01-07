@@ -90,6 +90,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
             value={editedContent}
             onChange={handleTextChange}
             className="min-h-[200px] w-full resize-none bg-transparent font-mono focus-visible:ring-0 focus-visible:ring-offset-0 border-0"
+            autoFocus
           />
         ) : (
           <pre className="whitespace-pre-wrap font-sans">{editedContent}</pre>
