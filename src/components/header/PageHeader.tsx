@@ -7,7 +7,7 @@ export function PageHeader() {
         <div className="mb-6 flex items-center justify-center gap-2">
           <Globe className="h-8 w-8 text-primary" />
           <h1 className="text-4xl font-extrabold tracking-tight text-foreground transition-all duration-300 sm:text-5xl">
-            Domain Name Outreach Templates
+            DNOutreach.com
           </h1>
         </div>
         <p className="mx-auto max-w-2xl text-lg text-muted-foreground transition-all duration-300">
