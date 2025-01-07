@@ -34,6 +34,14 @@ export function TemplateCard({ template }: TemplateCardProps) {
     });
   };
 
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setEditedContent(e.target.value);
+  };
+
   return (
     <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -49,7 +57,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
           </Button>
         ) : (
           <Button
-            onClick={() => setIsEditing(true)}
+            onClick={handleEdit}
             size="icon"
             variant="ghost"
             className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
@@ -80,8 +88,8 @@ export function TemplateCard({ template }: TemplateCardProps) {
         {isEditing ? (
           <Textarea
             value={editedContent}
-            onChange={(e) => setEditedContent(e.target.value)}
-            className="min-h-[200px] w-full resize-none bg-transparent font-mono"
+            onChange={handleTextChange}
+            className="min-h-[200px] w-full resize-none bg-transparent font-mono focus-visible:ring-0 focus-visible:ring-offset-0 border-0"
           />
         ) : (
           <pre className="whitespace-pre-wrap font-sans">{editedContent}</pre>
