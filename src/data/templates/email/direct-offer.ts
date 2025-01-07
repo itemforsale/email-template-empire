@@ -2,7 +2,7 @@ import { Template } from '../types';
 
 export const directOfferTemplates: Template[] = [
   {
-    id: '1',
+    id: '201',
     category: 'Direct Offer',
     title: 'Premium Domain Direct Offer',
     content: `Hi [Name],
@@ -22,7 +22,7 @@ Best regards,
     platform: 'email'
   },
   {
-    id: '5',
+    id: '205',
     category: 'Direct Offer',
     title: 'Premium Domain Investment Opportunity',
     content: `Dear [Name],
@@ -45,7 +45,7 @@ Best regards,
     platform: 'email'
   },
   {
-    id: '13',
+    id: '203',
     category: 'Direct Offer',
     title: 'Premium Domain for Enterprise',
     content: `Dear [Name],
@@ -69,7 +69,7 @@ Best regards,
     platform: 'email'
   },
   {
-    id: '15',
+    id: '202',
     category: 'Direct Offer',
     title: 'Exclusive Domain Partnership',
     content: `Hello [Name],
@@ -94,7 +94,7 @@ Regards,
     platform: 'email'
   },
   {
-    id: '19',
+    id: '204',
     category: 'Direct Offer',
     title: 'Exclusive Domain Opportunity',
     content: `Dear [Name],
@@ -113,7 +113,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '23',
+    id: '206',
     category: 'Direct Offer',
     title: 'Exclusive Domain for Your Business',
     content: `Dear [Name],
@@ -132,7 +132,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '27',
+    id: '207',
     category: 'Direct Offer',
     title: 'Exclusive Domain Opportunity',
     content: `Dear [Name],
@@ -151,7 +151,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '31',
+    id: '208',
     category: 'Direct Offer',
     title: 'Exclusive Domain for Your Business',
     content: `Dear [Name],
@@ -170,7 +170,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '35',
+    id: '209',
     category: 'Direct Offer',
     title: 'Exclusive Domain Opportunity',
     content: `Dear [Name],
@@ -189,7 +189,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '39',
+    id: '210',
     category: 'Direct Offer',
     title: 'Exclusive Domain for Your Business',
     content: `Dear [Name],
@@ -202,63 +202,6 @@ Key Benefits:
 • Clean Transfer Process
 
 Would you be interested in discussing this opportunity?
-
-Best,
-[Your Name]`,
-    platform: 'email'
-  },
-  {
-    id: '43',
-    category: 'Direct Offer',
-    title: 'Exclusive Domain Opportunity',
-    content: `Dear [Name],
-
-I hope this message finds you well. I wanted to present an exclusive opportunity to acquire [DomainName.com].
-
-This premium domain is perfect for your business and offers:
-• Instant Brand Recognition
-• High Market Value
-• Clean Transfer Process
-
-Would you be interested in discussing this further?
-
-Best,
-[Your Name]`,
-    platform: 'email'
-  },
-  {
-    id: '47',
-    category: 'Direct Offer',
-    title: 'Exclusive Domain for Your Business',
-    content: `Dear [Name],
-
-I hope you’re doing well. I wanted to reach out about [DomainName.com], a premium domain that could significantly enhance your business.
-
-Key Benefits:
-• Instant Brand Authority
-• High Market Value
-• Clean Transfer Process
-
-Would you be interested in discussing this opportunity?
-
-Best,
-[Your Name]`,
-    platform: 'email'
-  },
-  {
-    id: '50',
-    category: 'Direct Offer',
-    title: 'Exclusive Domain Opportunity',
-    content: `Dear [Name],
-
-I hope this message finds you well. I wanted to present an exclusive opportunity to acquire [DomainName.com].
-
-This premium domain is perfect for your business and offers:
-• Instant Brand Recognition
-• High Market Value
-• Clean Transfer Process
-
-Would you be interested in discussing this further?
 
 Best,
 [Your Name]`,

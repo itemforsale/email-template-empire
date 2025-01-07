@@ -2,7 +2,7 @@ import { Template } from '../types';
 
 export const announcementTemplates: Template[] = [
   {
-    id: '3',
+    id: '301',
     category: 'Social Announcement',
     title: 'Premium Domain Available',
     content: `🔥 Premium Domain Alert 🔥
@@ -19,7 +19,7 @@ DM for details
     platform: 'twitter'
   },
   {
-    id: '7',
+    id: '302',
     category: 'Social Announcement',
     title: 'Exclusive Domain Launch',
     content: `🚀 Exclusive Domain Launch Alert!
@@ -38,7 +38,7 @@ DM for Details
     platform: 'twitter'
   },
   {
-    id: '10',
+    id: '303',
     category: 'Social Announcement',
     title: 'Domain Investment Opportunity',
     content: `💎 Premium Domain Investment Alert
@@ -61,7 +61,7 @@ DM for Details
     platform: 'twitter'
   },
   {
-    id: '15',
+    id: '304',
     category: 'Social Announcement',
     title: 'Premium Tech Domain Alert',
     content: `🚀 Just Listed: Premium Tech Domain
@@ -80,7 +80,7 @@ DM for Details
     platform: 'twitter'
   },
   {
-    id: '17',
+    id: '305',
     category: 'Social Announcement',
     title: 'New Domain Launch',
     content: `🌟 Exciting News: [DomainName.com] is now live!
@@ -96,7 +96,7 @@ Get in touch for more info!
     platform: 'twitter'
   },
   {
-    id: '18',
+    id: '306',
     category: 'Social Announcement',
     title: 'Limited Time Domain Offer',
     content: `⏳ Limited Time Offer: [DomainName.com]
@@ -112,7 +112,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '19',
+    id: '307',
     category: 'Social Announcement',
     title: 'Exclusive Domain Opportunity',
     content: `🚀 Exclusive Opportunity: [DomainName.com]
@@ -128,7 +128,7 @@ Act fast, this won't last long!
     platform: 'twitter'
   },
   {
-    id: '20',
+    id: '308',
     category: 'Social Announcement',
     title: 'Premium Domain for Sale',
     content: `💼 Premium Domain Available: [DomainName.com]
@@ -143,7 +143,7 @@ Contact us for more information!
     platform: 'twitter'
   },
   {
-    id: '21',
+    id: '309',
     category: 'Social Announcement',
     title: 'Domain Name Investment',
     content: `💰 Invest in Your Future with [DomainName.com]
@@ -156,7 +156,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '22',
+    id: '310',
     category: 'Social Announcement',
     title: 'Unlock Your Brand Potential',
     content: `🔑 Unlock Your Brand Potential with [DomainName.com]
@@ -172,7 +172,7 @@ Get in touch today!
     platform: 'twitter'
   },
   {
-    id: '23',
+    id: '311',
     category: 'Social Announcement',
     title: 'Domain Name Opportunity',
     content: `🌐 Domain Name Opportunity: [DomainName.com]
@@ -188,7 +188,7 @@ DM for more info!
     platform: 'twitter'
   },
   {
-    id: '24',
+    id: '312',
     category: 'Social Announcement',
     title: 'Secure Your Domain Today',
     content: `🛡️ Secure Your Domain Today: [DomainName.com]
@@ -203,7 +203,7 @@ Contact us for details!
     platform: 'twitter'
   },
   {
-    id: '25',
+    id: '313',
     category: 'Social Announcement',
     title: 'Premium Domain Alert',
     content: `🚨 Premium Domain Alert: [DomainName.com]
@@ -219,7 +219,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '26',
+    id: '314',
     category: 'Social Announcement',
     title: 'Domain Name for Sale',
     content: `💼 Domain Name for Sale: [DomainName.com]
@@ -232,7 +232,7 @@ Contact us for more information!
     platform: 'twitter'
   },
   {
-    id: '27',
+    id: '315',
     category: 'Social Announcement',
     title: 'Exclusive Domain Opportunity',
     content: `🚀 Exclusive Domain Opportunity: [DomainName.com]
@@ -248,7 +248,7 @@ Act fast, this won't last long!
     platform: 'twitter'
   },
   {
-    id: '28',
+    id: '316',
     category: 'Social Announcement',
     title: 'Unlock Your Brand Potential',
     content: `🔑 Unlock Your Brand Potential with [DomainName.com]
@@ -264,7 +264,7 @@ Get in touch today!
     platform: 'twitter'
   },
   {
-    id: '29',
+    id: '317',
     category: 'Social Announcement',
     title: 'Domain Name Investment',
     content: `💰 Invest in Your Future with [DomainName.com]
@@ -277,7 +277,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '30',
+    id: '318',
     category: 'Social Announcement',
     title: 'Limited Time Domain Offer',
     content: `⏳ Limited Time Offer: [DomainName.com]

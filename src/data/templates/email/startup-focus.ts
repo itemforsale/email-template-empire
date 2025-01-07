@@ -2,7 +2,7 @@ import { Template } from '../types';
 
 export const startupFocusTemplates: Template[] = [
   {
-    id: '2',
+    id: '101',
     category: 'Startup Focus',
     title: 'Perfect Startup Domain',
     content: `Hey [Founder Name],
@@ -22,7 +22,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '6',
+    id: '102',
     category: 'Startup Focus',
     title: 'Domain for Tech Startups',
     content: `Hi [Founder Name],
@@ -44,7 +44,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '12',
+    id: '103',
     category: 'Startup Focus',
     title: 'Domain for Growing Startups',
     content: `Hey [Founder Name],
@@ -66,7 +66,7 @@ Best regards,
     platform: 'email'
   },
   {
-    id: '14',
+    id: '104',
     category: 'Startup Focus',
     title: 'Domain for Series A Startups',
     content: `Hi [Founder Name],
@@ -88,7 +88,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '16',
+    id: '105',
     category: 'Startup Focus',
     title: 'Domain for Innovative Startups',
     content: `Hi [Founder Name],
@@ -109,7 +109,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '20',
+    id: '106',
     category: 'Startup Focus',
     title: 'Domain for Emerging Brands',
     content: `Hi [Founder Name],
@@ -128,7 +128,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '24',
+    id: '107',
     category: 'Startup Focus',
     title: 'Domain for Innovative Startups',
     content: `Hi [Founder Name],
@@ -147,7 +147,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '28',
+    id: '108',
     category: 'Startup Focus',
     title: 'Domain for Emerging Brands',
     content: `Hi [Founder Name],
@@ -166,7 +166,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '32',
+    id: '109',
     category: 'Startup Focus',
     title: 'Domain for Innovative Startups',
     content: `Hi [Founder Name],
@@ -185,7 +185,7 @@ Best,
     platform: 'email'
   },
   {
-    id: '36',
+    id: '110',
     category: 'Startup Focus',
     title: 'Domain for Emerging Brands',
     content: `Hi [Founder Name],
@@ -198,25 +198,6 @@ Key Features:
 • High SEO Potential
 
 Let’s chat about how this domain can benefit your brand.
-
-Best,
-[Your Name]`,
-    platform: 'email'
-  },
-  {
-    id: '40',
-    category: 'Startup Focus',
-    title: 'Domain for Innovative Startups',
-    content: `Hi [Founder Name],
-
-Congratulations on your recent achievements! I have a premium domain that could be a perfect fit for [Company Name]: [DomainName.com]
-
-Key Features:
-• Memorable and Brandable
-• High SEO Potential
-• Industry-Specific Appeal
-
-Let’s discuss how this domain can elevate your brand.
 
 Best,
 [Your Name]`,
