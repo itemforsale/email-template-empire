@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Copy, Edit2, Save, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 interface TemplateCardProps {
   template: Template;
@@ -43,19 +50,10 @@ export function TemplateCard({ template }: TemplateCardProps) {
   };
 
   return (
-    <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      <div className="absolute right-4 top-4 flex gap-2">
-        {isEditing ? (
-          <Button
-            onClick={handleSave}
-            size="icon"
-            variant="ghost"
-            className="rounded-full bg-background/90 p-2 shadow-lg transition-all duration-300 hover:bg-primary/10"
-          >
-            <Save className="h-5 w-5 text-foreground" />
-          </Button>
-        ) : (
+    <>
+      <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute right-4 top-4 flex gap-2">
           <Button
             onClick={handleEdit}
             size="icon"
@@ -64,41 +62,51 @@ export function TemplateCard({ template }: TemplateCardProps) {
           >
             <Edit2 className="h-5 w-5 text-foreground" />
           </Button>
-        )}
-        <Button
-          onClick={handleCopy}
-          size="icon"
-          variant="ghost"
-          className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
-        >
-          <Copy className="h-5 w-5 text-foreground" />
-        </Button>
-      </div>
-      <div className="mb-3 flex items-center gap-2">
-        <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-          <Star className="h-3 w-3" />
-          {getPlatformDisplay(template.platform)}
-        </span>
-        <span className="text-xs text-muted-foreground">{template.category}</span>
-      </div>
-      <h3 className="mb-3 text-lg font-semibold text-card-foreground">
-        {template.title}
-      </h3>
-      <div className="rounded-lg bg-muted/50 p-4">
-        {isEditing ? (
-          <Textarea
-            value={editedContent}
-            onChange={handleTextChange}
-            className="min-h-[200px] w-full resize-none border-0 bg-transparent p-0 text-sm text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
-            autoFocus
-            spellCheck={false}
-          />
-        ) : (
+          <Button
+            onClick={handleCopy}
+            size="icon"
+            variant="ghost"
+            className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
+          >
+            <Copy className="h-5 w-5 text-foreground" />
+          </Button>
+        </div>
+        <div className="mb-3 flex items-center gap-2">
+          <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            <Star className="h-3 w-3" />
+            {getPlatformDisplay(template.platform)}
+          </span>
+          <span className="text-xs text-muted-foreground">{template.category}</span>
+        </div>
+        <h3 className="mb-3 text-lg font-semibold text-card-foreground">
+          {template.title}
+        </h3>
+        <div className="rounded-lg bg-muted/50 p-4">
           <pre className="whitespace-pre-wrap font-sans text-sm text-muted-foreground">
             {editedContent}
           </pre>
-        )}
+        </div>
       </div>
-    </div>
+
+      <Dialog open={isEditing} onOpenChange={setIsEditing}>
+        <DialogContent className="sm:max-w-[625px]">
+          <DialogHeader>
+            <DialogTitle>Edit Template</DialogTitle>
+          </DialogHeader>
+          <div className="mt-4">
+            <Textarea
+              value={editedContent}
+              onChange={handleTextChange}
+              className="min-h-[300px] w-full resize-none"
+              spellCheck={false}
+              autoFocus
+            />
+          </div>
+          <DialogFooter className="mt-6">
+            <Button onClick={handleSave}>Save Changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
