@@ -99,9 +99,17 @@ export default function Index() {
                 <span>Outreach.com</span>
               </h1>
             </div>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground transition-all duration-300">
-              Professional templates to help you market and sell your domain names effectively
-            </p>
+            <div className="flex flex-col items-center gap-4">
+              <p className="mx-auto max-w-2xl text-lg text-muted-foreground transition-all duration-300">
+                Professional templates to help you market and sell your domain names effectively
+              </p>
+              <div className="flex items-baseline gap-2 text-4xl font-bold">
+                <span className="text-6xl text-primary animate-[pulse_3s_ease-in-out_infinite]">
+                  {templates.length}
+                </span>
+                <span className="text-muted-foreground">templates</span>
+              </div>
+            </div>
           </div>
         </div>
 
