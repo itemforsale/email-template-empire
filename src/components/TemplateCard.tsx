@@ -84,17 +84,19 @@ export function TemplateCard({ template }: TemplateCardProps) {
       <h3 className="mb-3 text-lg font-semibold text-card-foreground">
         {template.title}
       </h3>
-      <div className="rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
+      <div className="rounded-lg bg-muted/50 p-4">
         {isEditing ? (
           <Textarea
             value={editedContent}
             onChange={handleTextChange}
-            className="min-h-[200px] w-full resize-none bg-transparent text-foreground"
+            className="min-h-[200px] w-full resize-none border-0 bg-transparent p-0 text-sm text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
             autoFocus
             spellCheck={false}
           />
         ) : (
-          <pre className="whitespace-pre-wrap font-sans">{editedContent}</pre>
+          <pre className="whitespace-pre-wrap font-sans text-sm text-muted-foreground">
+            {editedContent}
+          </pre>
         )}
       </div>
     </div>
