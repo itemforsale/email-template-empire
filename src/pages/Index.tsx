@@ -2,7 +2,7 @@ import { useState } from "react";
 import { templates, categories, platforms } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Globe, X } from "lucide-react";
+import { Search, Globe, X, Mail } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TemplateCard } from "@/components/TemplateCard";
 import { Template } from "@/data/templates/types";
@@ -79,15 +79,25 @@ export default function Index() {
     <div className="min-h-screen bg-background transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
-          <a
-            href="https://x.com/i/communities/1679163145921626113"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
-          >
-            <X className="h-6 w-6 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-            <span className="text-sm font-medium">Join our X Community</span>
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://x.com/i/communities/1679163145921626113"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
+            >
+              <X className="h-6 w-6 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+              <span className="text-sm font-medium">Join our X Community</span>
+            </a>
+            <div className="h-4 w-px bg-border" /> {/* Separator */}
+            <a
+              href="mailto:sam@wizard.uk"
+              className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
+            >
+              <Mail className="h-6 w-6" />
+              <span className="text-sm font-medium">Contact</span>
+            </a>
+          </div>
           <ThemeToggle />
         </div>
         
