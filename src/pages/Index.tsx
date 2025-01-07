@@ -3,7 +3,7 @@ import { templates, categories, platforms, Template } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { Copy, Search, Globe, Star, Twitter } from "lucide-react";
+import { Copy, Search, Globe, Star, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const FloatingDomains = () => {
@@ -70,9 +70,9 @@ export default function Index() {
             href="https://x.com/i/communities/1679163145921626113"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
           >
-            <Twitter className="h-6 w-6" />
+            <X className="h-6 w-6 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
             <span className="text-sm font-medium">Join our X Community</span>
           </a>
           <ThemeToggle />
