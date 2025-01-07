@@ -7,7 +7,7 @@ import { TemplateHeader } from "./template/TemplateHeader";
 import { TemplateActions } from "./template/TemplateActions";
 import { TemplateStats } from "./template/TemplateStats";
 import { TemplateEditDialog } from "./template/TemplateEditDialog";
-import { ThumbsUp } from "lucide-react";
+import { ThumbsUp, Smile } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface TemplateCardProps {
@@ -92,8 +92,8 @@ export function TemplateCard({ template, onVote }: TemplateCardProps) {
     if (onVote) {
       onVote(template.id);
       toast({
-        title: "Vote recorded",
-        description: "Thank you for voting!",
+        title: "Thanks for voting!",
+        description: <div className="flex items-center gap-2">We appreciate your feedback <Smile className="h-4 w-4 text-yellow-500" /></div>,
       });
     }
   };
