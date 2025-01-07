@@ -19,7 +19,7 @@ export function WelcomeSection() {
           className="mt-4 bg-green-50 dark:bg-green-900/20 rounded-lg p-4"
         >
           <CollapsibleTrigger className="flex items-center justify-between w-full">
-            <span className="font-semibold text-green-700 dark:text-green-300 animate-rainbow">
+            <span className="font-semibold text-green-700 dark:text-green-300">
               How to Use
             </span>
             <ChevronDown className={`h-4 w-4 text-green-700 dark:text-green-300 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''}`} />
