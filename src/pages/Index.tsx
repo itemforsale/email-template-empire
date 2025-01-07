@@ -8,6 +8,8 @@ import { WelcomeSection } from "@/components/welcome/WelcomeSection";
 import { SearchBar } from "@/components/search/SearchBar";
 import { CategoryFilter } from "@/components/filters/CategoryFilter";
 import { PlatformFilter } from "@/components/filters/PlatformFilter";
+import { Button } from "@/components/ui/button";
+import { Heart } from "lucide-react";
 
 const FloatingDomains = () => {
   const domains = [
@@ -57,7 +59,18 @@ export default function Index() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <CommunityLinks />
-          <ThemeToggle />
+          <div className="flex items-center gap-4">
+            <Button
+              variant="outline"
+              size="default"
+              className="bg-background shadow-md hover:bg-primary hover:text-primary-foreground"
+              onClick={() => window.open('https://buy.stripe.com/eVa5kJ8MlaMadGM5kv', '_blank')}
+            >
+              <Heart className="w-4 h-4 mr-2" />
+              Support Us
+            </Button>
+            <ThemeToggle />
+          </div>
         </div>
         
         <PageHeader />
