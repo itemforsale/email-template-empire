@@ -7,15 +7,13 @@ import { TemplateHeader } from "./template/TemplateHeader";
 import { TemplateActions } from "./template/TemplateActions";
 import { TemplateStats } from "./template/TemplateStats";
 import { TemplateEditDialog } from "./template/TemplateEditDialog";
-import { ThumbsUp, Smile } from "lucide-react";
-import { Button } from "./ui/button";
+import { Smile } from "lucide-react";
 
 interface TemplateCardProps {
   template: Template;
-  onVote?: (templateId: string) => void;
 }
 
-export function TemplateCard({ template, onVote }: TemplateCardProps) {
+export function TemplateCard({ template }: TemplateCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(template.content);
   const { toast } = useToast();
@@ -114,35 +112,16 @@ export function TemplateCard({ template, onVote }: TemplateCardProps) {
     }
   };
 
-  const handleVote = () => {
-    if (onVote) {
-      onVote(template.id);
-      toast({
-        title: "Thanks for voting!",
-        description: <div className="flex items-center gap-2">We appreciate your feedback <Smile className="h-4 w-4 text-yellow-500" /></div>,
-      });
-    }
-  };
-
   return (
     <>
       <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4">
           <TemplateActions
             onEdit={handleEdit}
             onCopy={handleCopy}
             onDownload={handleDownload}
           />
-          <Button
-            variant="ghost"
-            size="sm"
-            className="flex items-center gap-2"
-            onClick={handleVote}
-          >
-            <ThumbsUp className="h-4 w-4" />
-            <span>{template.votes || 0}</span>
-          </Button>
         </div>
         
         <TemplateHeader
