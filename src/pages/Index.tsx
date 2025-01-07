@@ -3,7 +3,7 @@ import { templates, categories, platforms, Template } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { Copy, Search, Globe, Star } from "lucide-react";
+import { Copy, Search, Globe, Star, Twitter } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const FloatingDomains = () => {
@@ -65,7 +65,19 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <ThemeToggle />
+        <div className="flex justify-between items-center mb-8">
+          <a
+            href="https://x.com/i/communities/1679163145921626113"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+          >
+            <Twitter className="h-6 w-6" />
+            <span className="text-sm font-medium">Join our X Community</span>
+          </a>
+          <ThemeToggle />
+        </div>
+        
         <div className="relative mb-12 text-center">
           <FloatingDomains />
           <div className="relative z-10">
