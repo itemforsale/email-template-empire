@@ -9,6 +9,7 @@ import { industrySpecificTemplates } from './categories/industry-specific';
 import { brandingFocusedTemplates } from './categories/branding-focused';
 import { seoFocusedTemplates } from './categories/seo-focused';
 import { startupEntrepreneurTemplates } from './categories/startup-entrepreneur';
+import { nicheMarketsTemplates } from './categories/niche-markets';
 
 export const emailTemplates: Template[] = [
   ...directOfferTemplates,
@@ -20,5 +21,6 @@ export const emailTemplates: Template[] = [
   ...industrySpecificTemplates,
   ...brandingFocusedTemplates,
   ...seoFocusedTemplates,
-  ...startupEntrepreneurTemplates
+  ...startupEntrepreneurTemplates,
+  ...nicheMarketsTemplates
 ];
