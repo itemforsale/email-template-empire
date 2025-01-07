@@ -11,7 +11,7 @@ export function PlatformFilter({ platforms, selectedPlatform, onPlatformChange }
     const displayNames: { [key: string]: string } = {
       'email': 'Email',
       'linkedin': 'LinkedIn',
-      'twitter': 'X'
+      'twitter': 'Twitter/X'
     };
     return displayNames[platform] || platform;
   };

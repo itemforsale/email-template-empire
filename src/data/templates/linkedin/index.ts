@@ -1,10 +1,10 @@
 import { Template } from '../types';
-import { professionalOutreachTemplates } from './categories/professional-outreach';
-import { techFocusedTemplates } from './categories/tech-focused';
-import { strategicAcquisitionTemplates } from './categories/strategic-acquisition';
+import { directOutreachTemplates } from './direct-outreach';
+import { enterpriseTemplates } from './enterprise';
+import { startupTemplates } from './startup';
 
 export const linkedinTemplates: Template[] = [
-  ...professionalOutreachTemplates,
-  ...techFocusedTemplates,
-  ...strategicAcquisitionTemplates
+  ...directOutreachTemplates,
+  ...enterpriseTemplates,
+  ...startupTemplates
 ];
