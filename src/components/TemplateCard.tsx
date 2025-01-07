@@ -7,7 +7,8 @@ import { TemplateHeader } from "./template/TemplateHeader";
 import { TemplateActions } from "./template/TemplateActions";
 import { TemplateStats } from "./template/TemplateStats";
 import { TemplateEditDialog } from "./template/TemplateEditDialog";
-import { Smile } from "lucide-react";
+import { database } from "@/lib/firebase";
+import { ref, onValue, set, increment } from "firebase/database";
 
 interface TemplateCardProps {
   template: Template;
@@ -18,39 +19,37 @@ export function TemplateCard({ template }: TemplateCardProps) {
   const [editedContent, setEditedContent] = useState(template.content);
   const { toast } = useToast();
 
-  // Initialize counts from localStorage or default to 0
-  const [copyCount, setCopyCount] = useState(() => {
-    const saved = localStorage.getItem(`template-${template.id}-copyCount`);
-    return saved ? parseInt(saved, 10) : 0;
-  });
-
-  const [editCount, setEditCount] = useState(() => {
-    const saved = localStorage.getItem(`template-${template.id}-editCount`);
-    return saved ? parseInt(saved, 10) : 0;
-  });
-
-  const [downloadCount, setDownloadCount] = useState(() => {
-    const saved = localStorage.getItem(`template-${template.id}-downloadCount`);
-    return saved ? parseInt(saved, 10) : 0;
-  });
-
-  // Update localStorage whenever counts change
-  useEffect(() => {
-    localStorage.setItem(`template-${template.id}-copyCount`, copyCount.toString());
-  }, [copyCount, template.id]);
+  const [copyCount, setCopyCount] = useState(0);
+  const [editCount, setEditCount] = useState(0);
+  const [downloadCount, setDownloadCount] = useState(0);
 
   useEffect(() => {
-    localStorage.setItem(`template-${template.id}-editCount`, editCount.toString());
-  }, [editCount, template.id]);
+    const statsRef = ref(database, `templateStats/${template.id}`);
+    
+    // Initialize if not exists
+    set(statsRef, {
+      copyCount: 0,
+      editCount: 0,
+      downloadCount: 0
+    }, { merge: true });
 
-  useEffect(() => {
-    localStorage.setItem(`template-${template.id}-downloadCount`, downloadCount.toString());
-  }, [downloadCount, template.id]);
+    // Listen for changes
+    const unsubscribe = onValue(statsRef, (snapshot) => {
+      const data = snapshot.val() || { copyCount: 0, editCount: 0, downloadCount: 0 };
+      setCopyCount(data.copyCount);
+      setEditCount(data.editCount);
+      setDownloadCount(data.downloadCount);
+    });
+
+    return () => unsubscribe();
+  }, [template.id]);
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(editedContent);
-      setCopyCount((prev) => prev + 1);
+      const statsRef = ref(database, `templateStats/${template.id}/copyCount`);
+      await set(statsRef, increment(1));
+      
       toast({
         title: "Copied to clipboard",
         description: "Template has been copied to your clipboard",
@@ -64,9 +63,11 @@ export function TemplateCard({ template }: TemplateCardProps) {
     }
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsEditing(false);
-    setEditCount((prev) => prev + 1);
+    const statsRef = ref(database, `templateStats/${template.id}/editCount`);
+    await set(statsRef, increment(1));
+    
     toast({
       title: "Changes saved",
       description: "Your template changes have been saved",
@@ -97,8 +98,10 @@ export function TemplateCard({ template }: TemplateCardProps) {
       a.click();
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
-      setDownloadCount((prev) => prev + 1);
       
+      const statsRef = ref(database, `templateStats/${template.id}/downloadCount`);
+      await set(statsRef, increment(1));
+
       toast({
         title: "Download started",
         description: "Your template is being downloaded",
