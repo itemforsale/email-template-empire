@@ -49,19 +49,19 @@ export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
-  const [votedTemplates, setVotedTemplates] = useState<{ [key: string]: number }>({});
+  const [votes, setVotes] = useState<{ [key: string]: number }>({});
 
   const handleVote = (templateId: string) => {
-    setVotedTemplates((prev) => ({
-      ...prev,
-      [templateId]: (prev[templateId] || 0) + 1,
+    setVotes(prevVotes => ({
+      ...prevVotes,
+      [templateId]: (prevVotes[templateId] || 0) + 1
     }));
   };
 
   const filteredTemplates = templates
     .map(template => ({
       ...template,
-      votes: votedTemplates[template.id] || 0
+      votes: votes[template.id] || 0
     }))
     .filter((template) => {
       const matchesSearch =
@@ -71,7 +71,7 @@ export default function Index() {
       const matchesPlatform = !selectedPlatform || template.platform === selectedPlatform;
       return matchesSearch && matchesCategory && matchesPlatform;
     })
-    .sort((a, b) => (b.votes || 0) - (a.votes || 0));
+    .sort((a, b) => b.votes - a.votes);
 
   return (
     <div className="min-h-screen bg-background transition-all duration-300">
