@@ -16,7 +16,8 @@ Perfect for:
 
 DM for details
 #Domains #Branding #Business`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '302',
@@ -35,7 +36,8 @@ Limited Time Offer
 DM for Details
 
 #Domains #DigitalAssets #Startup`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '303',
@@ -58,7 +60,8 @@ Limited Time Offer
 DM for Details
 
 #DomainNames #Investment`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '304',
@@ -77,7 +80,8 @@ Limited Time Opportunity
 DM for Details
 
 #TechStartup #Domains #DigitalAssets`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '305',
@@ -93,7 +97,8 @@ Perfect for:
 Get in touch for more info!
 
 #DomainLaunch #BusinessGrowth`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '306',
@@ -109,7 +114,8 @@ This premium domain is perfect for:
 DM for details!
 
 #DomainOffer #DigitalAssets`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '307',
@@ -125,7 +131,8 @@ Ideal for:
 Act fast, this won't last long!
 
 #ExclusiveDomain #BusinessOpportunity`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '308',
@@ -140,7 +147,8 @@ Perfect for businesses looking to:
 Contact us for more information!
 
 #DomainForSale #Branding`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '309',
@@ -153,7 +161,8 @@ A premium domain that can elevate your brand.
 DM for details!
 
 #DomainInvestment #BusinessGrowth`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '310',
@@ -169,7 +178,8 @@ This domain is perfect for:
 Get in touch today!
 
 #BrandPotential #DomainName`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '311',
@@ -185,7 +195,8 @@ Ideal for:
 DM for more info!
 
 #DomainOpportunity #BusinessGrowth`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '312',
@@ -200,7 +211,8 @@ Perfect for businesses looking to:
 Contact us for details!
 
 #SecureYourDomain #Branding`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '313',
@@ -216,7 +228,8 @@ This domain is perfect for:
 DM for details!
 
 #PremiumDomain #BusinessOpportunity`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '314',
@@ -229,7 +242,8 @@ A premium domain that can elevate your brand.
 Contact us for more information!
 
 #DomainForSale #Branding`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '315',
@@ -245,7 +259,8 @@ Ideal for:
 Act fast, this won't last long!
 
 #ExclusiveDomain #BusinessOpportunity`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '316',
@@ -261,7 +276,8 @@ This domain is perfect for:
 Get in touch today!
 
 #BrandPotential #DomainName`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '317',
@@ -274,7 +290,8 @@ A premium domain that can elevate your brand.
 DM for details!
 
 #DomainInvestment #BusinessGrowth`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   },
   {
     id: '318',
@@ -290,6 +307,7 @@ This premium domain is perfect for:
 DM for details!
 
 #DomainOffer #DigitalAssets`,
-    platform: 'twitter'
+    platform: 'twitter',
+    displayPlatform: 'X'
   }
 ];

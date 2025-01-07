@@ -27,6 +27,10 @@ export default function Index() {
     });
   };
 
+  const getPlatformDisplay = (platform: string) => {
+    return platform === 'twitter' ? 'X' : platform.charAt(0).toUpperCase() + platform.slice(1);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -88,7 +92,7 @@ export default function Index() {
                 className="rounded-full transition-all duration-200 hover:scale-105"
                 onClick={() => setSelectedPlatform(platform)}
               >
-                {platform.charAt(0).toUpperCase() + platform.slice(1)}
+                {getPlatformDisplay(platform)}
               </Button>
             ))}
           </div>
@@ -111,7 +115,7 @@ export default function Index() {
               <div className="mb-3 flex items-center gap-2">
                 <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                   <Sparkles className="h-3 w-3" />
-                  {template.platform}
+                  {getPlatformDisplay(template.platform)}
                 </span>
                 <span className="text-xs text-gray-500">{template.category}</span>
               </div>

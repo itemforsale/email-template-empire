@@ -4,4 +4,5 @@ export interface Template {
   title: string;
   content: string;
   platform: 'email' | 'twitter' | 'linkedin';
+  displayPlatform?: string;
 }
