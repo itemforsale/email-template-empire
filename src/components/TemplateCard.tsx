@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Template } from "@/data/templates/types";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Copy, Edit2, Save, Star } from "lucide-react";
+import { Copy, Edit2, Save, Star, FileDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFTemplate } from "./PDFTemplate";
 import {
   Dialog,
   DialogContent,
@@ -70,6 +72,28 @@ export function TemplateCard({ template }: TemplateCardProps) {
           >
             <Copy className="h-5 w-5 text-foreground" />
           </Button>
+          <PDFDownloadLink
+            document={
+              <PDFTemplate
+                template={{
+                  ...template,
+                  content: editedContent,
+                }}
+              />
+            }
+            fileName={`${template.title.toLowerCase().replace(/\s+/g, "-")}.pdf`}
+          >
+            {({ loading }) => (
+              <Button
+                size="icon"
+                variant="ghost"
+                className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
+                disabled={loading}
+              >
+                <FileDown className="h-5 w-5 text-foreground" />
+              </Button>
+            )}
+          </PDFDownloadLink>
         </div>
         <div className="mb-3 flex items-center gap-2">
           <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
