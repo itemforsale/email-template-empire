@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Template } from "@/data/templates/types";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Copy, Edit2, Save, Star, FileDown } from "lucide-react";
+import { Copy, Edit2, Save, Star, FileDown, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { generateWordDocument } from "./WordTemplate";
 import { Packer } from "docx";
@@ -21,6 +21,9 @@ interface TemplateCardProps {
 export function TemplateCard({ template }: TemplateCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(template.content);
+  const [copyCount, setCopyCount] = useState(0);
+  const [editCount, setEditCount] = useState(0);
+  const [downloadCount, setDownloadCount] = useState(0);
   const { toast } = useToast();
 
   const getPlatformDisplay = (platform: string) => {
@@ -29,6 +32,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(editedContent);
+    setCopyCount(prev => prev + 1);
     toast({
       title: "Copied to clipboard",
       description: "Template has been copied to your clipboard",
@@ -37,6 +41,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
 
   const handleSave = () => {
     setIsEditing(false);
+    setEditCount(prev => prev + 1);
     toast({
       title: "Changes saved",
       description: "Your template changes have been saved",
@@ -66,6 +71,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
+    setDownloadCount(prev => prev + 1);
   };
 
   return (
@@ -112,6 +118,17 @@ export function TemplateCard({ template }: TemplateCardProps) {
           <pre className="whitespace-pre-wrap font-sans text-sm text-muted-foreground">
             {editedContent}
           </pre>
+        </div>
+        <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
+          <span className="flex items-center gap-1">
+            <Copy className="h-3 w-3" /> {copyCount} copies
+          </span>
+          <span className="flex items-center gap-1">
+            <Edit2 className="h-3 w-3" /> {editCount} edits
+          </span>
+          <span className="flex items-center gap-1">
+            <FileDown className="h-3 w-3" /> {downloadCount} downloads
+          </span>
         </div>
       </div>
 
