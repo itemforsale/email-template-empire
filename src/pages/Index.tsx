@@ -3,7 +3,7 @@ import { templates, categories, platforms, Template } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { Copy, Search, Globe } from "lucide-react";
+import { Copy, Search, Globe, Star } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const FloatingDomains = () => {
@@ -151,7 +151,7 @@ export default function Index() {
                 </button>
                 <div className="mb-3 flex items-center gap-2">
                   <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                    <Sparkles className="h-3 w-3" />
+                    <Star className="h-3 w-3" />
                     {getPlatformDisplay(template.platform)}
                   </span>
                   <span className="text-xs text-muted-foreground">{template.category}</span>
