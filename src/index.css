@@ -87,11 +87,13 @@
 .floating-domains {
   @apply absolute inset-0 overflow-hidden opacity-20;
   z-index: 0;
+  @apply hidden md:block; /* Hide on mobile, show on medium screens and up */
 }
 
 .floating-domain {
   @apply absolute text-primary/30 font-mono text-sm;
   animation: float 20s linear infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes float {
