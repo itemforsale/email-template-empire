@@ -33,14 +33,14 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background/80 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/80 transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <ThemeToggle />
         <div className="mb-12 text-center">
-          <h1 className="mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent transition-colors duration-300 sm:text-5xl">
+          <h1 className="mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent transition-all duration-300 sm:text-5xl">
             Domain Outreach Templates
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-foreground/80 transition-colors duration-300">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/80 transition-all duration-300">
             Professional templates to help you market and sell your domain names effectively
           </p>
         </div>
