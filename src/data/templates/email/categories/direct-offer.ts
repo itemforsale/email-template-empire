@@ -2,48 +2,46 @@ import { Template } from '../../types';
 
 export const directOfferTemplates: Template[] = [
   {
-    id: '201',
+    id: '1',
     category: 'Direct Offer',
-    title: 'Premium Domain Investment',
-    content: `Dear [Name],
+    title: 'Premium Domain Direct Offer',
+    content: `Hi [Name],
 
-I noticed your expanding digital presence and wanted to discuss [DomainName.com].
+I noticed your growing brand presence and wanted to reach out about [DomainName.com].
 
-Key Advantages:
-• Premium One-Word Domain
-• Industry Authority
-• Global Recognition Potential
+This premium domain perfectly aligns with your business and could significantly enhance your brand's digital presence.
 
 Current Market Value: [Price]
-Flexible Payment Options Available
+Payment Plans Available
+Instant Transfer Process
 
-Would you like to explore this opportunity?
+Would you be interested in a brief discussion about acquiring this domain?
 
 Best regards,
 [Your Name]`,
     platform: 'email'
   },
   {
-    id: '202',
+    id: '5',
     category: 'Direct Offer',
-    title: 'Strategic Domain Acquisition',
-    content: `Hello [Name],
+    title: 'Premium Domain Investment Opportunity',
+    content: `Dear [Name],
 
-I'm reaching out regarding [DomainName.com], a premium domain that aligns perfectly with your business growth trajectory.
+I represent [DomainName.com], a premium domain that aligns perfectly with your industry.
 
-Domain Features:
+Key Benefits:
 • Instant Brand Recognition
 • High SEO Value
-• Clean Registration History
+• One-Word Domain
+• Multiple TLDs Available
 
-Investment Value: [Price]
-Enterprise-grade transfer support included.
+Current Market Value: [Price]
+Flexible Payment Options Available
 
-Interested in a brief discussion?
+Would you be interested in a brief call to discuss this opportunity?
 
-Best,
+Best regards,
 [Your Name]`,
     platform: 'email'
-  },
-  // ... Adding more unique templates here
+  }
 ];
