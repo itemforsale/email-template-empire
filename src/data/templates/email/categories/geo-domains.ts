@@ -69,5 +69,51 @@ Would you like to explore this opportunity?
 Best regards,
 [Your Name]`,
     platform: 'email'
+  },
+  {
+    id: 'geo-4',
+    category: 'Geo Domains',
+    title: 'Metropolitan Area Domain',
+    content: `Hi [Name],
+
+Given your presence in the [Metro Area] market, I wanted to share this premium opportunity: [MetroName.com]
+
+Metro Domain Benefits:
+• Urban Market Leadership
+• Metropolitan Recognition
+• City-Wide Authority
+• Regional Growth Potential
+
+Investment: [Price]
+Flexible acquisition options available.
+
+Let's discuss how this domain could enhance your metropolitan presence.
+
+Best,
+[Your Name]`,
+    platform: 'email'
+  },
+  {
+    id: 'geo-5',
+    category: 'Geo Domains',
+    title: 'State-Level Domain',
+    content: `Dear [Name],
+
+For businesses expanding across [State], I have an exceptional domain opportunity: [StateName.com]
+
+State-Wide Benefits:
+• State-Level Authority
+• Geographic Market Power
+• Regional Brand Leadership
+• State-Wide Recognition
+
+Current Value: [Price]
+Enterprise-grade transfer support included.
+
+Would you like to discuss this opportunity?
+
+Best regards,
+[Your Name]`,
+    platform: 'email'
   }
 ];
