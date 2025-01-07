@@ -11,6 +11,7 @@ import { seoFocusedTemplates } from './categories/seo-focused';
 import { startupEntrepreneurTemplates } from './categories/startup-entrepreneur';
 import { nicheMarketsTemplates } from './categories/niche-markets';
 import { expiredPremiumTemplates } from './categories/expired-premium';
+import { problemSolutionTemplates } from './categories/problem-solution';
 
 export const emailTemplates: Template[] = [
   ...directOfferTemplates,
@@ -24,5 +25,6 @@ export const emailTemplates: Template[] = [
   ...seoFocusedTemplates,
   ...startupEntrepreneurTemplates,
   ...nicheMarketsTemplates,
-  ...expiredPremiumTemplates
+  ...expiredPremiumTemplates,
+  ...problemSolutionTemplates
 ];
