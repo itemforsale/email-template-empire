@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply border-border;
+  }
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -47,15 +51,18 @@
     --input: 240 3.7% 15.9%;
     --ring: 142 43% 54%;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  /* Apply transitions to all elements that might change with dark mode */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
   }
 }
 
@@ -87,7 +94,7 @@
 .floating-domains {
   @apply absolute inset-0 overflow-hidden opacity-20;
   z-index: 0;
-  @apply hidden md:block; /* Hide on mobile, show on medium screens and up */
+  @apply hidden md:block;
 }
 
 .floating-domain {
