@@ -2,11 +2,11 @@ import { useState } from "react";
 import { templates, categories, platforms } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Globe, X } from "lucide-react"; // Added X import
+import { Search, Globe, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TemplateCard } from "@/components/TemplateCard";
+import { Template } from "@/data/templates/types";
 
-// Add the getPlatformDisplay function
 const getPlatformDisplay = (platform: string): string => {
   const displayNames: { [key: string]: string } = {
     'email': 'Email',
@@ -49,15 +49,29 @@ export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
+  const [votedTemplates, setVotedTemplates] = useState<{ [key: string]: number }>({});
 
-  const filteredTemplates = templates.filter((template) => {
-    const matchesSearch =
-      template.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      template.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = !selectedCategory || template.category === selectedCategory;
-    const matchesPlatform = !selectedPlatform || template.platform === selectedPlatform;
-    return matchesSearch && matchesCategory && matchesPlatform;
-  });
+  const handleVote = (templateId: string) => {
+    setVotedTemplates((prev) => ({
+      ...prev,
+      [templateId]: (prev[templateId] || 0) + 1,
+    }));
+  };
+
+  const filteredTemplates = templates
+    .map(template => ({
+      ...template,
+      votes: votedTemplates[template.id] || 0
+    }))
+    .filter((template) => {
+      const matchesSearch =
+        template.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        template.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = !selectedCategory || template.category === selectedCategory;
+      const matchesPlatform = !selectedPlatform || template.platform === selectedPlatform;
+      return matchesSearch && matchesCategory && matchesPlatform;
+    })
+    .sort((a, b) => (b.votes || 0) - (a.votes || 0));
 
   return (
     <div className="min-h-screen bg-background transition-all duration-300">
@@ -168,7 +182,11 @@ export default function Index() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredTemplates.map((template) => (
-              <TemplateCard key={template.id} template={template} />
+              <TemplateCard 
+                key={template.id} 
+                template={template} 
+                onVote={handleVote}
+              />
             ))}
           </div>
         </div>

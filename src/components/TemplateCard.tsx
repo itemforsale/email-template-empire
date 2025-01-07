@@ -7,12 +7,15 @@ import { TemplateHeader } from "./template/TemplateHeader";
 import { TemplateActions } from "./template/TemplateActions";
 import { TemplateStats } from "./template/TemplateStats";
 import { TemplateEditDialog } from "./template/TemplateEditDialog";
+import { ThumbsUp } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface TemplateCardProps {
   template: Template;
+  onVote?: (templateId: string) => void;
 }
 
-export function TemplateCard({ template }: TemplateCardProps) {
+export function TemplateCard({ template, onVote }: TemplateCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(template.content);
   const [copyCount, setCopyCount] = useState(0);
@@ -85,15 +88,36 @@ export function TemplateCard({ template }: TemplateCardProps) {
     }
   };
 
+  const handleVote = () => {
+    if (onVote) {
+      onVote(template.id);
+      toast({
+        title: "Vote recorded",
+        description: "Thank you for voting!",
+      });
+    }
+  };
+
   return (
     <>
       <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <TemplateActions
-          onEdit={handleEdit}
-          onCopy={handleCopy}
-          onDownload={handleDownload}
-        />
+        <div className="mb-4 flex items-center justify-between">
+          <TemplateActions
+            onEdit={handleEdit}
+            onCopy={handleCopy}
+            onDownload={handleDownload}
+          />
+          <Button
+            variant="ghost"
+            size="sm"
+            className="flex items-center gap-2"
+            onClick={handleVote}
+          >
+            <ThumbsUp className="h-4 w-4" />
+            <span>{template.votes || 0}</span>
+          </Button>
+        </div>
         <TemplateHeader
           platform={template.platform}
           category={template.category}

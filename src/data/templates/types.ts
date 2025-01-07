@@ -3,6 +3,7 @@ export interface Template {
   category: string;
   title: string;
   content: string;
-  platform: 'email' | 'twitter' | 'linkedin';
+  platform: string;
   displayPlatform?: string;
+  votes?: number;
 }
