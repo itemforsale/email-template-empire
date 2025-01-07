@@ -127,6 +127,7 @@ export default function Index() {
         </div>
 
         <div className="mb-12 space-y-6">
+
           <div className="relative mx-auto max-w-2xl flex items-center gap-4">
             <div className="flex-1 relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-6">
@@ -202,3 +203,4 @@ export default function Index() {
     </div>
   );
 }
+
