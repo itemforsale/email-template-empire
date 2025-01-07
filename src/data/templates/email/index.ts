@@ -5,6 +5,7 @@ import { startupFocusTemplates } from './startup-focus';
 import { premiumDomainTemplates } from './categories/premium-domains';
 import { brandableDomainsTemplates } from './categories/brandable-domains';
 import { geoDomainsTemplates } from './categories/geo-domains';
+import { industrySpecificTemplates } from './categories/industry-specific';
 
 export const emailTemplates: Template[] = [
   ...directOfferTemplates,
@@ -12,5 +13,6 @@ export const emailTemplates: Template[] = [
   ...startupFocusTemplates,
   ...premiumDomainTemplates,
   ...brandableDomainsTemplates,
-  ...geoDomainsTemplates
+  ...geoDomainsTemplates,
+  ...industrySpecificTemplates
 ];
