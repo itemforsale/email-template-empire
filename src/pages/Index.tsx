@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { templates, categories, platforms, Template } from "@/data/templates";
+import { templates, categories, platforms } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
-import { Copy, Search, Globe, Star, X } from "lucide-react";
+import { Search, Globe } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { TemplateCard } from "@/components/TemplateCard";
 
 const FloatingDomains = () => {
   const domains = [
@@ -39,7 +39,6 @@ export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
-  const { toast } = useToast();
 
   const filteredTemplates = templates.filter((template) => {
     const matchesSearch =
@@ -49,18 +48,6 @@ export default function Index() {
     const matchesPlatform = !selectedPlatform || template.platform === selectedPlatform;
     return matchesSearch && matchesCategory && matchesPlatform;
   });
-
-  const copyToClipboard = (content: string) => {
-    navigator.clipboard.writeText(content);
-    toast({
-      title: "Copied to clipboard",
-      description: "Template has been copied to your clipboard",
-    });
-  };
-
-  const getPlatformDisplay = (platform: string) => {
-    return platform === "twitter" ? "X" : platform.charAt(0).toUpperCase() + platform.slice(1);
-  };
 
   return (
     <div className="min-h-screen bg-background transition-all duration-300">
@@ -171,34 +158,7 @@ export default function Index() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredTemplates.map((template) => (
-              <div
-                key={template.id}
-                className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <button
-                  onClick={() => copyToClipboard(template.content)}
-                  className="absolute right-4 top-4 rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
-                  aria-label="Copy template"
-                >
-                  <Copy className="h-5 w-5 text-foreground" />
-                </button>
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                    <Star className="h-3 w-3" />
-                    {getPlatformDisplay(template.platform)}
-                  </span>
-                  <span className="text-xs text-muted-foreground">{template.category}</span>
-                </div>
-                <h3 className="mb-3 text-lg font-semibold text-card-foreground">
-                  {template.title}
-                </h3>
-                <div className="rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
-                  <pre className="whitespace-pre-wrap font-sans">
-                    {template.content}
-                  </pre>
-                </div>
-              </div>
+              <TemplateCard key={template.id} template={template} />
             ))}
           </div>
         </div>
