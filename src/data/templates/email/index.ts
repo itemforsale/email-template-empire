@@ -10,6 +10,7 @@ import { brandingFocusedTemplates } from './categories/branding-focused';
 import { seoFocusedTemplates } from './categories/seo-focused';
 import { startupEntrepreneurTemplates } from './categories/startup-entrepreneur';
 import { nicheMarketsTemplates } from './categories/niche-markets';
+import { expiredPremiumTemplates } from './categories/expired-premium';
 
 export const emailTemplates: Template[] = [
   ...directOfferTemplates,
@@ -22,5 +23,6 @@ export const emailTemplates: Template[] = [
   ...brandingFocusedTemplates,
   ...seoFocusedTemplates,
   ...startupEntrepreneurTemplates,
-  ...nicheMarketsTemplates
+  ...nicheMarketsTemplates,
+  ...expiredPremiumTemplates
 ];
