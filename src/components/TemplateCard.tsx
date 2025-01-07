@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Copy, Edit2, Save, Star, FileDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFDownloadLink, BlobProvider } from "@react-pdf/renderer";
 import { PDFTemplate } from "./PDFTemplate";
 import {
   Dialog,
@@ -72,7 +72,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
           >
             <Copy className="h-5 w-5 text-foreground" />
           </Button>
-          <PDFDownloadLink
+          <BlobProvider
             document={
               <PDFTemplate
                 template={{
@@ -81,19 +81,24 @@ export function TemplateCard({ template }: TemplateCardProps) {
                 }}
               />
             }
-            fileName={`${template.title.toLowerCase().replace(/\s+/g, "-")}.pdf`}
           >
-            {({ loading }) => (
+            {({ url, loading }) => (
               <Button
                 size="icon"
                 variant="ghost"
                 className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
                 disabled={loading}
+                asChild
               >
-                <FileDown className="h-5 w-5 text-foreground" />
+                <a
+                  href={url || "#"}
+                  download={`${template.title.toLowerCase().replace(/\s+/g, "-")}.pdf`}
+                >
+                  <FileDown className="h-5 w-5 text-foreground" />
+                </a>
               </Button>
             )}
-          </PDFDownloadLink>
+          </BlobProvider>
         </div>
         <div className="mb-3 flex items-center gap-2">
           <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
