@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Template } from "@/data/templates/types";
 import { useToast } from "@/hooks/use-toast";
 import { generateWordDocument } from "./WordTemplate";
@@ -18,10 +18,36 @@ interface TemplateCardProps {
 export function TemplateCard({ template, onVote }: TemplateCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(template.content);
-  const [copyCount, setCopyCount] = useState(0);
-  const [editCount, setEditCount] = useState(0);
-  const [downloadCount, setDownloadCount] = useState(0);
   const { toast } = useToast();
+
+  // Initialize counts from localStorage or default to 0
+  const [copyCount, setCopyCount] = useState(() => {
+    const saved = localStorage.getItem(`template-${template.id}-copyCount`);
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  const [editCount, setEditCount] = useState(() => {
+    const saved = localStorage.getItem(`template-${template.id}-editCount`);
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  const [downloadCount, setDownloadCount] = useState(() => {
+    const saved = localStorage.getItem(`template-${template.id}-downloadCount`);
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  // Update localStorage whenever counts change
+  useEffect(() => {
+    localStorage.setItem(`template-${template.id}-copyCount`, copyCount.toString());
+  }, [copyCount, template.id]);
+
+  useEffect(() => {
+    localStorage.setItem(`template-${template.id}-editCount`, editCount.toString());
+  }, [editCount, template.id]);
+
+  useEffect(() => {
+    localStorage.setItem(`template-${template.id}-downloadCount`, downloadCount.toString());
+  }, [downloadCount, template.id]);
 
   const handleCopy = async () => {
     try {
