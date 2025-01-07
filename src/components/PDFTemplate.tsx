@@ -1,16 +1,10 @@
-import { Document, Page, Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import { Template } from "@/data/templates/types";
-
-// Register a professional font
-Font.register({
-  family: "Inter",
-  src: "https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2",
-});
 
 const styles = StyleSheet.create({
   page: {
     padding: 40,
-    fontFamily: "Inter",
+    fontFamily: "Helvetica",
   },
   header: {
     marginBottom: 20,
@@ -19,6 +13,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 10,
     color: "#1a1a1a",
+    fontFamily: "Helvetica-Bold",
   },
   metadata: {
     flexDirection: "row",
@@ -44,6 +39,13 @@ const styles = StyleSheet.create({
     color: "#666666",
     textAlign: "center",
   },
+  bullet: {
+    width: 3,
+    height: 3,
+    margin: "0 8px",
+    backgroundColor: "#666666",
+    borderRadius: "50%",
+  },
 });
 
 interface PDFTemplateProps {
@@ -51,15 +53,17 @@ interface PDFTemplateProps {
 }
 
 export function PDFTemplate({ template }: PDFTemplateProps) {
+  const platformDisplay = template.platform === "twitter" ? "X" : template.platform.charAt(0).toUpperCase() + template.platform.slice(1);
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.title}>{template.title}</Text>
           <View style={styles.metadata}>
-            <Text>Category: {template.category}</Text>
-            <Text>•</Text>
-            <Text>Platform: {template.platform}</Text>
+            <Text>{template.category}</Text>
+            <View style={styles.bullet} />
+            <Text>Platform: {platformDisplay}</Text>
           </View>
         </View>
         <View style={styles.content}>
