@@ -76,7 +76,7 @@ export default function Index() {
               <X className="h-6 w-6 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
               <span className="text-sm font-medium">Join our X Community</span>
             </a>
-            <div className="h-4 w-px bg-border" /> {/* Separator */}
+            <div className="h-4 w-px bg-border" />
             <a
               href="mailto:sam@wizard.uk"
               className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
@@ -94,8 +94,7 @@ export default function Index() {
             <div className="mb-6 flex items-center justify-center gap-2">
               <Globe className="h-8 w-8 text-primary" />
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground transition-all duration-300 sm:text-5xl">
-                <span className="text-primary font-black">DN</span>
-                <span>Outreach.com</span>
+                DN Outreach Domain Name Outbounding Templates Free
               </h1>
             </div>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground transition-all duration-300">
