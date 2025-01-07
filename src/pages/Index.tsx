@@ -73,6 +73,8 @@ export default function Index() {
     })
     .sort((a, b) => b.votes - a.votes);
 
+  const totalTemplates = templates.length;
+
   return (
     <div className="min-h-screen bg-background transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -143,7 +145,7 @@ export default function Index() {
             </div>
             <div className="flex items-baseline gap-2 text-2xl font-bold whitespace-nowrap">
               <span className="text-3xl text-primary animate-[pulse_3s_ease-in-out_infinite]">
-                {templates.length}
+                {totalTemplates}
               </span>
               <span className="text-muted-foreground">templates</span>
             </div>
@@ -203,4 +205,3 @@ export default function Index() {
     </div>
   );
 }
-
