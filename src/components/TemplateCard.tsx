@@ -16,6 +16,7 @@ interface TemplateCardProps {
 export function TemplateCard({ template }: TemplateCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(template.content);
+  const [showFlash, setShowFlash] = useState(false);
   const { toast } = useToast();
 
   // Initialize counts from localStorage or default to 0
@@ -114,8 +115,19 @@ export function TemplateCard({ template }: TemplateCardProps) {
 
   return (
     <>
-      <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
+      <div 
+        className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl"
+        onMouseEnter={() => setShowFlash(true)}
+        onMouseLeave={() => setShowFlash(false)}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        
+        {showFlash && (
+          <div className="absolute top-0 left-0 right-0 bg-green-500/90 text-white text-xs py-1 text-center animate-fade-down animate-duration-300">
+            You can edit, copy, and download this template as a Word document
+          </div>
+        )}
+        
         <div className="mb-4">
           <TemplateActions
             onEdit={handleEdit}
