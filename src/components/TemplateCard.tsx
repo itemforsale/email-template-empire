@@ -7,7 +7,6 @@ import { TemplateHeader } from "./template/TemplateHeader";
 import { TemplateActions } from "./template/TemplateActions";
 import { TemplateStats } from "./template/TemplateStats";
 import { TemplateEditDialog } from "./template/TemplateEditDialog";
-import { Smile } from "lucide-react";
 
 interface TemplateCardProps {
   template: Template;
@@ -133,6 +132,8 @@ export function TemplateCard({ template }: TemplateCardProps) {
             onEdit={handleEdit}
             onCopy={handleCopy}
             onDownload={handleDownload}
+            templateId={template.id}
+            title={template.title}
           />
         </div>
         
