@@ -3,8 +3,37 @@ import { templates, categories, platforms, Template } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { Copy, Search, Sparkles } from "lucide-react";
+import { Copy, Search, Globe } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+
+const FloatingDomains = () => {
+  const domains = [
+    "example.com",
+    "domain.io",
+    "website.net",
+    "brand.co",
+    "startup.app",
+    "tech.dev",
+    "digital.xyz",
+  ];
+
+  return (
+    <div className="floating-domains">
+      {domains.map((domain, index) => (
+        <div
+          key={domain}
+          className="floating-domain"
+          style={{
+            left: `${(index * 15) % 100}%`,
+            animationDelay: `${index * 2}s`,
+          }}
+        >
+          {domain}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,8 +42,9 @@ export default function Index() {
   const { toast } = useToast();
 
   const filteredTemplates = templates.filter((template) => {
-    const matchesSearch = template.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         template.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch =
+      template.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      template.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = !selectedCategory || template.category === selectedCategory;
     const matchesPlatform = !selectedPlatform || template.platform === selectedPlatform;
     return matchesSearch && matchesCategory && matchesPlatform;
@@ -29,20 +59,26 @@ export default function Index() {
   };
 
   const getPlatformDisplay = (platform: string) => {
-    return platform === 'twitter' ? 'X' : platform.charAt(0).toUpperCase() + platform.slice(1);
+    return platform === "twitter" ? "X" : platform.charAt(0).toUpperCase() + platform.slice(1);
   };
 
   return (
     <div className="min-h-screen bg-background transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <ThemeToggle />
-        <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground transition-all duration-300 sm:text-5xl">
-            Domain Outreach Templates
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground transition-all duration-300">
-            Professional templates to help you market and sell your domain names effectively
-          </p>
+        <div className="relative mb-12 text-center">
+          <FloatingDomains />
+          <div className="relative z-10">
+            <div className="mb-6 flex items-center justify-center gap-2">
+              <Globe className="h-8 w-8 text-primary" />
+              <h1 className="text-4xl font-extrabold tracking-tight text-foreground transition-all duration-300 sm:text-5xl">
+                Domain Outreach
+              </h1>
+            </div>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground transition-all duration-300">
+              Professional templates to help you market and sell your domain names effectively
+            </p>
+          </div>
         </div>
 
         <div className="mb-12 space-y-6">
