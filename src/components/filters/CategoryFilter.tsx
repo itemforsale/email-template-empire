@@ -7,12 +7,21 @@ interface CategoryFilterProps {
 }
 
 export function CategoryFilter({ categories, selectedCategory, onCategoryChange }: CategoryFilterProps) {
+  const handleCategoryClick = (category: string) => {
+    onCategoryChange(category);
+    // Smooth scroll to templates section
+    const templatesSection = document.querySelector('.grid');
+    if (templatesSection) {
+      templatesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="flex flex-wrap justify-center gap-3">
       <Button
         variant={selectedCategory === "" ? "default" : "outline"}
         className="rounded-full transition-all duration-200 hover:scale-105"
-        onClick={() => onCategoryChange("")}
+        onClick={() => handleCategoryClick("")}
       >
         All Categories
       </Button>
@@ -21,7 +30,7 @@ export function CategoryFilter({ categories, selectedCategory, onCategoryChange 
           key={category}
           variant={selectedCategory === category ? "default" : "outline"}
           className="rounded-full transition-all duration-200 hover:scale-105"
-          onClick={() => onCategoryChange(category)}
+          onClick={() => handleCategoryClick(category)}
         >
           {category}
         </Button>
