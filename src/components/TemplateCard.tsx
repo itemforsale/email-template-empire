@@ -89,8 +89,9 @@ export function TemplateCard({ template }: TemplateCardProps) {
           <Textarea
             value={editedContent}
             onChange={handleTextChange}
-            className="min-h-[200px] w-full resize-none bg-transparent font-mono focus-visible:ring-0 focus-visible:ring-offset-0 border-0"
+            className="min-h-[200px] w-full resize-none bg-transparent text-foreground focus:outline-none"
             autoFocus
+            spellCheck={false}
           />
         ) : (
           <pre className="whitespace-pre-wrap font-sans">{editedContent}</pre>
