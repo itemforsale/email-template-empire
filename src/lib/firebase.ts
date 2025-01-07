@@ -11,5 +11,10 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
+// Initialize Firebase only if we have the required config
+if (!firebaseConfig.databaseURL) {
+  throw new Error('Firebase Database URL is required');
+}
+
 const app = initializeApp(firebaseConfig);
 export const database = getDatabase(app);

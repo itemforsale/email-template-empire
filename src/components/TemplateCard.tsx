@@ -31,7 +31,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
       copyCount: 0,
       editCount: 0,
       downloadCount: 0
-    }, { merge: true });
+    }).catch(console.error);
 
     // Listen for changes
     const unsubscribe = onValue(statsRef, (snapshot) => {
