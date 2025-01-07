@@ -1,6 +1,12 @@
 import { Template } from '../types';
-import { announcementTemplates } from './announcements';
+import { premiumDomainTemplates } from './categories/premium-domains';
+import { techDomainTemplates } from './categories/tech-domains';
+import { investmentTemplates } from './categories/investment-opportunities';
+import { generalAnnouncementTemplates } from './categories/general-announcements';
 
 export const twitterTemplates: Template[] = [
-  ...announcementTemplates
+  ...premiumDomainTemplates,
+  ...techDomainTemplates,
+  ...investmentTemplates,
+  ...generalAnnouncementTemplates
 ];
