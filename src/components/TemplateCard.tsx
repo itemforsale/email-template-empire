@@ -20,18 +20,26 @@ export function TemplateCard({ template }: TemplateCardProps) {
   const [downloadCount, setDownloadCount] = useState(0);
   const { toast } = useToast();
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(editedContent);
-    setCopyCount(prev => prev + 1);
-    toast({
-      title: "Copied to clipboard",
-      description: "Template has been copied to your clipboard",
-    });
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(editedContent);
+      setCopyCount((prev) => prev + 1);
+      toast({
+        title: "Copied to clipboard",
+        description: "Template has been copied to your clipboard",
+      });
+    } catch (err) {
+      toast({
+        title: "Failed to copy",
+        description: "Could not copy template to clipboard",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleSave = () => {
     setIsEditing(false);
-    setEditCount(prev => prev + 1);
+    setEditCount((prev) => prev + 1);
     toast({
       title: "Changes saved",
       description: "Your template changes have been saved",
@@ -47,21 +55,34 @@ export function TemplateCard({ template }: TemplateCardProps) {
   };
 
   const handleDownload = async () => {
-    const doc = generateWordDocument({
-      ...template,
-      content: editedContent,
-    });
+    try {
+      const doc = generateWordDocument({
+        ...template,
+        content: editedContent,
+      });
 
-    const blob = await Packer.toBlob(doc);
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${template.title.toLowerCase().replace(/\s+/g, "-")}.docx`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-    setDownloadCount(prev => prev + 1);
+      const blob = await Packer.toBlob(doc);
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${template.title.toLowerCase().replace(/\s+/g, "-")}.docx`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      setDownloadCount((prev) => prev + 1);
+      
+      toast({
+        title: "Download started",
+        description: "Your template is being downloaded",
+      });
+    } catch (err) {
+      toast({
+        title: "Download failed",
+        description: "Could not download the template",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
