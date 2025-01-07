@@ -1,7 +1,7 @@
 import { Template } from './types';
-import { emailTemplates } from './email-templates';
-import { twitterTemplates } from './twitter-templates';
-import { linkedinTemplates } from './linkedin-templates';
+import { emailTemplates } from './email';
+import { twitterTemplates } from './twitter';
+import { linkedinTemplates } from './linkedin';
 
 export const templates: Template[] = [
   ...emailTemplates,
