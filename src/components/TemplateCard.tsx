@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Copy, Edit2, Save, Star, FileDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { PDFDownloadLink, BlobProvider } from "@react-pdf/renderer";
-import { PDFTemplate } from "./PDFTemplate";
+import { generateWordDocument } from "./WordTemplate";
+import { Packer } from "docx";
 import {
   Dialog,
   DialogContent,
@@ -51,6 +51,23 @@ export function TemplateCard({ template }: TemplateCardProps) {
     setEditedContent(e.target.value);
   };
 
+  const handleDownload = async () => {
+    const doc = generateWordDocument({
+      ...template,
+      content: editedContent,
+    });
+
+    const blob = await Packer.toBlob(doc);
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${template.title.toLowerCase().replace(/\s+/g, "-")}.docx`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  };
+
   return (
     <>
       <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-xl">
@@ -72,33 +89,14 @@ export function TemplateCard({ template }: TemplateCardProps) {
           >
             <Copy className="h-5 w-5 text-foreground" />
           </Button>
-          <BlobProvider
-            document={
-              <PDFTemplate
-                template={{
-                  ...template,
-                  content: editedContent,
-                }}
-              />
-            }
+          <Button
+            onClick={handleDownload}
+            size="icon"
+            variant="ghost"
+            className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
           >
-            {({ url, loading }) => (
-              <Button
-                size="icon"
-                variant="ghost"
-                className="rounded-full bg-background/90 p-2 opacity-0 shadow-lg transition-all duration-300 hover:bg-primary/10 group-hover:opacity-100"
-                disabled={loading}
-                asChild
-              >
-                <a
-                  href={url || "#"}
-                  download={`${template.title.toLowerCase().replace(/\s+/g, "-")}.pdf`}
-                >
-                  <FileDown className="h-5 w-5 text-foreground" />
-                </a>
-              </Button>
-            )}
-          </BlobProvider>
+            <FileDown className="h-5 w-5 text-foreground" />
+          </Button>
         </div>
         <div className="mb-3 flex items-center gap-2">
           <span className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
