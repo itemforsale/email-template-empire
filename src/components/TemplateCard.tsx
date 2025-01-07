@@ -118,6 +118,7 @@ export function TemplateCard({ template, onVote }: TemplateCardProps) {
             <span>{template.votes || 0}</span>
           </Button>
         </div>
+        
         <TemplateHeader
           platform={template.platform}
           category={template.category}
