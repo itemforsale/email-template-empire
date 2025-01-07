@@ -7,6 +7,7 @@ import { brandableDomainsTemplates } from './categories/brandable-domains';
 import { geoDomainsTemplates } from './categories/geo-domains';
 import { industrySpecificTemplates } from './categories/industry-specific';
 import { brandingFocusedTemplates } from './categories/branding-focused';
+import { seoFocusedTemplates } from './categories/seo-focused';
 
 export const emailTemplates: Template[] = [
   ...directOfferTemplates,
@@ -16,5 +17,6 @@ export const emailTemplates: Template[] = [
   ...brandableDomainsTemplates,
   ...geoDomainsTemplates,
   ...industrySpecificTemplates,
-  ...brandingFocusedTemplates
+  ...brandingFocusedTemplates,
+  ...seoFocusedTemplates
 ];
