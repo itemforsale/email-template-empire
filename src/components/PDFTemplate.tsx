@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   page: {
     padding: 40,
     fontFamily: "Helvetica",
+    backgroundColor: "#ffffff",
   },
   header: {
     marginBottom: 20,
@@ -12,23 +13,23 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 10,
-    color: "#1a1a1a",
+    color: "#000000",
     fontFamily: "Helvetica-Bold",
   },
   metadata: {
     flexDirection: "row",
     gap: 10,
     marginBottom: 20,
-    color: "#666666",
+    color: "#000000",
     fontSize: 12,
   },
   content: {
-    fontSize: 14,
+    fontSize: 12,
     lineHeight: 1.6,
-    color: "#333333",
-    backgroundColor: "#f9f9f9",
+    color: "#000000",
     padding: 20,
     borderRadius: 8,
+    border: "1pt solid #cccccc",
   },
   footer: {
     position: "absolute",
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     width: 3,
     height: 3,
     margin: "0 8px",
-    backgroundColor: "#666666",
+    backgroundColor: "#000000",
     borderRadius: "50%",
   },
 });
