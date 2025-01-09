@@ -2,9 +2,9 @@ import { Globe } from "lucide-react";
 
 export function PageHeader() {
   const scrollToSignUp = () => {
-    const categoriesSection = document.querySelector('[data-categories]');
-    if (categoriesSection) {
-      categoriesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const signUpSection = document.querySelector('.mt-12.text-center.space-y-6');
+    if (signUpSection) {
+      signUpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -25,7 +25,7 @@ export function PageHeader() {
           onClick={scrollToSignUp}
           className="mt-6 w-full max-w-xl mx-auto bg-[#F2FCE2] hover:bg-[#E5F7D3] text-green-700 font-medium py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
         >
-          <span>Click here</span>
+          <span>Sign Up to Access Free Domain Outbound Templates!</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
