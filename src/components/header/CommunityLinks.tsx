@@ -1,4 +1,4 @@
-import { Mail, X, Heart } from "lucide-react";
+import { Mail, X, Heart, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -21,6 +21,35 @@ export function CommunityLinks() {
         <X className="h-6 w-6 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
         <span className="text-sm font-medium">Join our X Community</span>
       </a>
+      <div className="h-4 w-px bg-border" />
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            variant="outline"
+            size="default"
+            className="bg-background shadow-md hover:bg-primary hover:text-primary-foreground"
+          >
+            <Globe className="w-4 h-4 mr-2" />
+            SubmitYourDomain
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Submit Your Domain</DialogTitle>
+            <DialogDescription>
+              Submityourdomain.com is your trusted platform for buying and selling premium domains at trade prices. Whether you're building your next big idea or growing your portfolio, we connect you with unbeatable deals across x.com and beyond. Start trading smarter today!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-4">
+            <Button 
+              onClick={() => window.open('https://submityourdomain.com/', '_blank')}
+              className="w-full"
+            >
+              Visit SubmitYourDomain.com
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
       <div className="h-4 w-px bg-border" />
       <Dialog>
         <DialogTrigger asChild>
