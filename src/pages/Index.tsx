@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { templates, categories, platforms } from "@/data/templates";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TemplateCard } from "@/components/TemplateCard";
@@ -11,7 +11,7 @@ import { PlatformFilter } from "@/components/filters/PlatformFilter";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { LogOut } from "lucide-react";
+import { LogOut, ChevronDown } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function Index() {
@@ -21,6 +21,7 @@ export default function Index() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const categoriesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -52,6 +53,10 @@ export default function Index() {
       });
       navigate("/");
     }
+  };
+
+  const scrollToCategories = () => {
+    categoriesRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const filteredTemplates = templates.filter((template) => {
@@ -95,11 +100,24 @@ export default function Index() {
               totalTemplates={templates.length}
             />
 
-            <CategoryFilter
-              categories={categories}
-              selectedCategory={selectedCategory}
-              onCategoryChange={setSelectedCategory}
-            />
+            <div className="flex justify-center my-8">
+              <Button
+                variant="ghost"
+                size="lg"
+                onClick={scrollToCategories}
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                <ChevronDown className="w-8 h-8 animate-bounce" />
+              </Button>
+            </div>
+
+            <div ref={categoriesRef}>
+              <CategoryFilter
+                categories={categories}
+                selectedCategory={selectedCategory}
+                onCategoryChange={setSelectedCategory}
+              />
+            </div>
 
             <PlatformFilter
               platforms={platforms}
