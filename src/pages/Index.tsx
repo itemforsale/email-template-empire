@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { templates, categories, platforms } from "@/data/templates";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TemplateCard } from "@/components/TemplateCard";
@@ -11,43 +11,16 @@ import { PlatformFilter } from "@/components/filters/PlatformFilter";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { useEffect, useState as useReactState } from "react";
-
-const FloatingDomains = () => {
-  const domains = [
-    "example.com",
-    "domain.io",
-    "website.net",
-    "brand.co",
-    "startup.app",
-    "tech.dev",
-    "digital.xyz",
-  ];
-
-  return (
-    <div className="floating-domains">
-      {domains.map((domain, index) => (
-        <div
-          key={domain}
-          className="floating-domain"
-          style={{
-            left: `${(index * 15) % 100}%`,
-            animationDelay: `${index * 2}s`,
-          }}
-        >
-          {domain}
-        </div>
-      ))}
-    </div>
-  );
-};
+import { LogOut } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
-  const [isAuthenticated, setIsAuthenticated] = useReactState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -64,6 +37,23 @@ export default function Index() {
     return () => subscription.unsubscribe();
   }, []);
 
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Error signing out",
+        description: error.message,
+      });
+    } else {
+      toast({
+        title: "Signed out successfully",
+        description: "You have been signed out of your account.",
+      });
+      navigate("/auth");
+    }
+  };
+
   const filteredTemplates = templates.filter((template) => {
     const matchesSearch =
       template.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -78,7 +68,20 @@ export default function Index() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <CommunityLinks />
-          <ThemeToggle />
+          <div className="flex items-center gap-4">
+            {isAuthenticated && (
+              <Button
+                variant="outline"
+                size="default"
+                onClick={handleSignOut}
+                className="bg-background shadow-md hover:bg-primary hover:text-primary-foreground"
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            )}
+            <ThemeToggle />
+          </div>
         </div>
         
         <PageHeader />
