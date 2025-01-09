@@ -50,7 +50,7 @@ export default function Index() {
         title: "Signed out successfully",
         description: "You have been signed out of your account.",
       });
-      navigate("/auth");
+      navigate("/");
     }
   };
 
