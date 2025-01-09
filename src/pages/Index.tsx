@@ -8,6 +8,10 @@ import { WelcomeSection } from "@/components/welcome/WelcomeSection";
 import { SearchBar } from "@/components/search/SearchBar";
 import { CategoryFilter } from "@/components/filters/CategoryFilter";
 import { PlatformFilter } from "@/components/filters/PlatformFilter";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { useEffect, useState as useReactState } from "react";
 
 const FloatingDomains = () => {
   const domains = [
@@ -42,6 +46,23 @@ export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
+  const [isAuthenticated, setIsAuthenticated] = useReactState<boolean>(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsAuthenticated(!!session);
+    };
+
+    checkAuth();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const filteredTemplates = templates.filter((template) => {
     const matchesSearch =
@@ -63,34 +84,52 @@ export default function Index() {
         <PageHeader />
         <WelcomeSection />
 
-        <div className="mb-12 space-y-6">
-          <SearchBar 
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-            totalTemplates={templates.length}
-          />
+        {isAuthenticated ? (
+          <div className="mb-12 space-y-6">
+            <SearchBar 
+              searchTerm={searchTerm}
+              onSearchChange={setSearchTerm}
+              totalTemplates={templates.length}
+            />
 
-          <CategoryFilter
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
+            <CategoryFilter
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            />
 
-          <PlatformFilter
-            platforms={platforms}
-            selectedPlatform={selectedPlatform}
-            onPlatformChange={setSelectedPlatform}
-          />
+            <PlatformFilter
+              platforms={platforms}
+              selectedPlatform={selectedPlatform}
+              onPlatformChange={setSelectedPlatform}
+            />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredTemplates.map((template) => (
-              <TemplateCard 
-                key={template.id} 
-                template={template} 
-              />
-            ))}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredTemplates.map((template) => (
+                <TemplateCard 
+                  key={template.id} 
+                  template={template} 
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mt-12 text-center space-y-6">
+            <div className="max-w-2xl mx-auto bg-card p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">Access Premium Templates</h2>
+              <p className="text-muted-foreground mb-6">
+                Sign up to access our complete collection of professional domain outreach templates.
+              </p>
+              <Button 
+                onClick={() => navigate("/auth")}
+                size="lg"
+                className="font-semibold"
+              >
+                Sign Up Now
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
