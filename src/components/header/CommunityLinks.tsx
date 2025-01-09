@@ -1,4 +1,4 @@
-import { Mail, Twitter } from "lucide-react";
+import { Mail, X } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -25,7 +25,7 @@ export function CommunityLinks() {
         rel="noopener noreferrer"
         className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
       >
-        <Twitter className="h-6 w-6" />
+        <X className="h-6 w-6" />
         <span className="hidden sm:inline">Join our X Community</span>
       </a>
 
