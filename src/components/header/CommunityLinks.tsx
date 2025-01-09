@@ -10,6 +10,14 @@ import {
 } from "@/components/ui/dialog";
 
 export function CommunityLinks() {
+  // Function to decode the email for the mailto link
+  const decodeEmail = () => {
+    const encoded = "&#115;&#97;&#109;&#64;&#119;&#105;&#122;&#97;&#114;&#100;&#46;&#117;&#107;";
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = encoded;
+    return textarea.value;
+  };
+
   return (
     <div className="flex items-center gap-4">
       <a
@@ -85,7 +93,11 @@ export function CommunityLinks() {
       </Dialog>
       <div className="h-4 w-px bg-border" />
       <a
-        href="mailto:sam@wizard.uk"
+        href={`mailto:${decodeEmail()}`}
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = `mailto:${decodeEmail()}`;
+        }}
         className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
       >
         <Mail className="h-6 w-6" />
