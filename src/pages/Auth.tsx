@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Auth as SupabaseAuth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { supabase } from "@/integrations/supabase/client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import type { AuthError } from "@supabase/supabase-js";
 import { useToast } from "@/components/ui/use-toast";
+import { ArrowLeft } from "lucide-react";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -51,6 +52,14 @@ const Auth = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-4">
+        <Link 
+          to="/" 
+          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to main site
+        </Link>
+
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-bold text-foreground">Welcome</h1>
           <p className="text-foreground/80">Sign in to access templates</p>
