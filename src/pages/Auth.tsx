@@ -57,6 +57,9 @@ const Auth = () => {
                   colors: {
                     brand: 'hsl(var(--primary))',
                     brandAccent: 'hsl(var(--primary))',
+                    inputText: 'white',
+                    inputBackground: 'hsl(var(--background))',
+                    inputBorder: 'hsl(var(--border))',
                   },
                 },
               },
@@ -64,6 +67,7 @@ const Auth = () => {
                 anchor: 'text-white hover:text-white/80',
                 label: 'text-white',
                 message: 'text-white',
+                input: 'text-white bg-background border-input',
               },
             }}
             providers={[]}
