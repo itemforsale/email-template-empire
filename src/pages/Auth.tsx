@@ -36,9 +36,9 @@ const Auth = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-4">
-        <div className="text-center space-y-2 text-white">
-          <h1 className="text-2xl font-bold">Welcome</h1>
-          <p className="text-white/80">Sign in to access templates</p>
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-bold text-foreground">Welcome</h1>
+          <p className="text-foreground/80">Sign in to access templates</p>
         </div>
         
         {errorMessage && (
@@ -57,19 +57,19 @@ const Auth = () => {
                   colors: {
                     brand: 'hsl(var(--primary))',
                     brandAccent: 'hsl(var(--primary))',
-                    inputText: 'white',
+                    inputText: 'hsl(var(--foreground))',
                     inputBackground: 'hsl(var(--background))',
                     inputBorder: 'hsl(var(--border))',
                   },
                 },
               },
               className: {
-                anchor: 'text-white hover:text-white/80',
-                label: 'text-white',
-                message: 'text-white',
-                input: 'text-white bg-background border-input',
-                container: 'text-white',
-                divider: 'text-white/20',
+                anchor: 'text-foreground hover:text-foreground/80',
+                label: 'text-foreground',
+                message: 'text-white bg-background/30 p-2 rounded-md', // Added background and padding for better visibility
+                input: 'text-foreground bg-background border-input',
+                container: 'text-foreground',
+                divider: 'text-foreground/20',
               },
             }}
             providers={[]}
