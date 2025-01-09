@@ -111,7 +111,7 @@ export default function Index() {
               </Button>
             </div>
 
-            <div ref={categoriesRef}>
+            <div ref={categoriesRef} data-categories>
               <CategoryFilter
                 categories={categories}
                 selectedCategory={selectedCategory}
