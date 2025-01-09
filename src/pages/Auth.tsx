@@ -36,9 +36,9 @@ const Auth = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-4">
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-2 text-white">
           <h1 className="text-2xl font-bold">Welcome</h1>
-          <p className="text-muted-foreground">Sign in to access templates</p>
+          <p className="text-white/80">Sign in to access templates</p>
         </div>
         
         {errorMessage && (
@@ -59,6 +59,11 @@ const Auth = () => {
                     brandAccent: 'hsl(var(--primary))',
                   },
                 },
+              },
+              className: {
+                anchor: 'text-white hover:text-white/80',
+                label: 'text-white',
+                message: 'text-white',
               },
             }}
             providers={[]}
