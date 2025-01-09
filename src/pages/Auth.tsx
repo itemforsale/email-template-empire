@@ -5,20 +5,35 @@ import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import type { AuthError } from "@supabase/supabase-js";
+import { useToast } from "@/components/ui/use-toast";
 
 const Auth = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const { toast } = useToast();
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "SIGNED_IN" && session) {
+        toast({
+          title: "Welcome back!",
+          description: "You have successfully signed in.",
+        });
+        navigate("/");
+      }
+      
+      // Handle email confirmation
+      if (event === "USER_UPDATED" && session) {
+        toast({
+          title: "Email confirmed!",
+          description: "Your email has been successfully verified.",
+        });
         navigate("/");
       }
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, toast]);
 
   const getErrorMessage = (error: AuthError) => {
     switch (error.message) {
@@ -66,7 +81,7 @@ const Auth = () => {
               className: {
                 anchor: 'text-foreground hover:text-foreground/80',
                 label: 'text-foreground',
-                message: 'text-white bg-background/30 p-2 rounded-md', // Added background and padding for better visibility
+                message: 'text-white bg-background/30 p-2 rounded-md',
                 input: 'text-foreground bg-background border-input',
                 container: 'text-foreground',
                 divider: 'text-foreground/20',
