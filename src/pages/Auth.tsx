@@ -68,6 +68,8 @@ const Auth = () => {
                 label: 'text-white',
                 message: 'text-white',
                 input: 'text-white bg-background border-input',
+                container: 'text-white',
+                divider: 'text-white/20',
               },
             }}
             providers={[]}
