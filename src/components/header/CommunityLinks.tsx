@@ -64,7 +64,7 @@ export function CommunityLinks() {
         className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
       >
         <Mail className="h-6 w-6" />
-        <span className="hidden sm:inline">Contact us</span>
+        <span className="inline">Contact Support</span>
       </a>
     </div>
   );
