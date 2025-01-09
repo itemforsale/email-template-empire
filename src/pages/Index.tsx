@@ -126,7 +126,7 @@ export default function Index() {
               <Button 
                 onClick={() => navigate("/auth")}
                 size="lg"
-                className="font-semibold"
+                className="font-semibold text-lg px-8 py-6 h-auto"
               >
                 Sign Up Now
               </Button>
