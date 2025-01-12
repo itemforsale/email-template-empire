@@ -8,10 +8,10 @@ import { WelcomeSection } from "@/components/welcome/WelcomeSection";
 import { SearchBar } from "@/components/search/SearchBar";
 import { CategoryFilter } from "@/components/filters/CategoryFilter";
 import { PlatformFilter } from "@/components/filters/PlatformFilter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { LogOut, ChevronDown } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function Index() {
@@ -151,6 +151,16 @@ export default function Index() {
             </div>
           </div>
         )}
+
+        {/* Privacy Policy Link */}
+        <div className="fixed bottom-4 left-4">
+          <Link 
+            to="/privacy-policy"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </div>
   );
