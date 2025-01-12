@@ -13,12 +13,19 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { LogOut, ChevronDown } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [privacyDialogOpen, setPrivacyDialogOpen] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
   const categoriesRef = useRef<HTMLDivElement>(null);
@@ -152,14 +159,76 @@ export default function Index() {
           </div>
         )}
 
+        {/* Privacy Policy Dialog */}
+        <Dialog open={privacyDialogOpen} onOpenChange={setPrivacyDialogOpen}>
+          <DialogContent className="max-w-2xl">
+            <DialogHeader>
+              <DialogTitle>Privacy Policy</DialogTitle>
+            </DialogHeader>
+            <div className="prose prose-sm dark:prose-invert">
+              <section className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Introduction</h3>
+                <p>
+                  We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we handle your personal information when you visit our website and tell you about your privacy rights.
+                </p>
+              </section>
+
+              <section className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Information We Collect</h3>
+                <p>We collect and process the following information:</p>
+                <ul className="list-disc pl-6">
+                  <li>Email address (when you sign up)</li>
+                  <li>Usage data (how you interact with our website)</li>
+                  <li>Authentication data</li>
+                </ul>
+              </section>
+
+              <section className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">How We Use Your Information</h3>
+                <ul className="list-disc pl-6">
+                  <li>To provide and maintain our service</li>
+                  <li>To notify you about changes to our service</li>
+                  <li>To provide customer support</li>
+                  <li>To monitor the usage of our service</li>
+                </ul>
+              </section>
+
+              <section className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Data Security</h3>
+                <p>
+                  We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
+                </p>
+              </section>
+
+              <section className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Your Rights</h3>
+                <ul className="list-disc pl-6">
+                  <li>Access your personal data</li>
+                  <li>Correct your personal data</li>
+                  <li>Request deletion of your personal data</li>
+                  <li>Object to processing of your personal data</li>
+                  <li>Request restriction of processing your personal data</li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
+                <p>
+                  If you have any questions about this Privacy Policy, please contact us at privacy@example.com
+                </p>
+              </section>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         {/* Privacy Policy Link */}
         <div className="fixed bottom-4 left-4">
-          <Link 
-            to="/privacy-policy"
+          <button
+            onClick={() => setPrivacyDialogOpen(true)}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             Privacy Policy
-          </Link>
+          </button>
         </div>
       </div>
     </div>
