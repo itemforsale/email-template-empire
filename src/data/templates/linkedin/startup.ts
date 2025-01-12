@@ -95,5 +95,50 @@ Let's connect to explore this opportunity!
 Best,
 [Your Name]`,
     platform: 'linkedin'
+  },
+  {
+    id: '34',
+    category: 'LinkedIn Outreach',
+    title: 'Premium Startup Domain',
+    content: `🚀 Exclusive Domain Opportunity for Innovative Startups
+
+[DomainName.com] - A Premium Domain Perfect for:
+• Tech Innovators
+• Digital Pioneers
+• Industry Disruptors
+
+Why This Domain Matters:
+✓ Instant Brand Recognition
+✓ Perfect for Funding Rounds
+✓ Global Expansion Ready
+✓ Industry Authority
+
+Limited Time Investment Opportunity
+#StartupGrowth #DigitalAssets #Innovation`,
+    platform: 'linkedin'
+  },
+  {
+    id: '35',
+    category: 'LinkedIn Outreach',
+    title: 'Growth-Stage Domain',
+    content: `🌱 Premium Domain for Growth-Stage Startups
+
+[DomainName.com]
+
+Perfect for companies focused on:
+• Market Expansion
+• Brand Building
+• Industry Leadership
+• Global Recognition
+
+Investment Opportunity Details:
+✓ Clean History
+✓ Immediate Transfer
+✓ Growth Potential
+✓ Brand Authority
+
+DM for more information
+#StartupLife #ScaleUp #Growth`,
+    platform: 'linkedin'
   }
 ];

@@ -19,7 +19,7 @@ DM for details
     platform: 'twitter'
   },
   {
-    id: '7',
+    id: '4',
     category: 'Social Announcement',
     title: 'Exclusive Domain Launch',
     content: `🚀 Exclusive Domain Launch Alert!
@@ -38,7 +38,7 @@ DM for Details
     platform: 'twitter'
   },
   {
-    id: '10',
+    id: '5',
     category: 'Social Announcement',
     title: 'Domain Investment Opportunity',
     content: `💎 Premium Domain Investment Alert
@@ -61,7 +61,7 @@ DM for Details
     platform: 'twitter'
   },
   {
-    id: '15',
+    id: '6',
     category: 'Social Announcement',
     title: 'Premium Tech Domain Alert',
     content: `🚀 Just Listed: Premium Tech Domain
@@ -80,7 +80,7 @@ DM for Details
     platform: 'twitter'
   },
   {
-    id: '17',
+    id: '7',
     category: 'Social Announcement',
     title: 'New Domain Launch',
     content: `🌟 Exciting News: [DomainName.com] is now live!
@@ -96,7 +96,7 @@ Get in touch for more info!
     platform: 'twitter'
   },
   {
-    id: '18',
+    id: '8',
     category: 'Social Announcement',
     title: 'Limited Time Domain Offer',
     content: `⏳ Limited Time Offer: [DomainName.com]
@@ -112,7 +112,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '19',
+    id: '9',
     category: 'Social Announcement',
     title: 'Exclusive Domain Opportunity',
     content: `🚀 Exclusive Opportunity: [DomainName.com]
@@ -128,7 +128,7 @@ Act fast, this won't last long!
     platform: 'twitter'
   },
   {
-    id: '20',
+    id: '10',
     category: 'Social Announcement',
     title: 'Premium Domain for Sale',
     content: `💼 Premium Domain Available: [DomainName.com]
@@ -143,7 +143,7 @@ Contact us for more information!
     platform: 'twitter'
   },
   {
-    id: '21',
+    id: '11',
     category: 'Social Announcement',
     title: 'Domain Name Investment',
     content: `💰 Invest in Your Future with [DomainName.com]
@@ -156,7 +156,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '22',
+    id: '12',
     category: 'Social Announcement',
     title: 'Unlock Your Brand Potential',
     content: `🔑 Unlock Your Brand Potential with [DomainName.com]
@@ -172,7 +172,7 @@ Get in touch today!
     platform: 'twitter'
   },
   {
-    id: '23',
+    id: '13',
     category: 'Social Announcement',
     title: 'Domain Name Opportunity',
     content: `🌐 Domain Name Opportunity: [DomainName.com]
@@ -188,7 +188,7 @@ DM for more info!
     platform: 'twitter'
   },
   {
-    id: '24',
+    id: '14',
     category: 'Social Announcement',
     title: 'Secure Your Domain Today',
     content: `🛡️ Secure Your Domain Today: [DomainName.com]
@@ -203,7 +203,7 @@ Contact us for details!
     platform: 'twitter'
   },
   {
-    id: '25',
+    id: '15',
     category: 'Social Announcement',
     title: 'Premium Domain Alert',
     content: `🚨 Premium Domain Alert: [DomainName.com]
@@ -219,7 +219,7 @@ DM for details!
     platform: 'twitter'
   },
   {
-    id: '26',
+    id: '16',
     category: 'Social Announcement',
     title: 'Domain Name for Sale',
     content: `💼 Domain Name for Sale: [DomainName.com]
@@ -232,7 +232,7 @@ Contact us for more information!
     platform: 'twitter'
   },
   {
-    id: '27',
+    id: '17',
     category: 'Social Announcement',
     title: 'Exclusive Domain Opportunity',
     content: `🚀 Exclusive Domain Opportunity: [DomainName.com]
@@ -248,7 +248,7 @@ Act fast, this won't last long!
     platform: 'twitter'
   },
   {
-    id: '28',
+    id: '18',
     category: 'Social Announcement',
     title: 'Unlock Your Brand Potential',
     content: `🔑 Unlock Your Brand Potential with [DomainName.com]
@@ -264,32 +264,253 @@ Get in touch today!
     platform: 'twitter'
   },
   {
-    id: '29',
+    id: '19',
     category: 'Social Announcement',
-    title: 'Domain Name Investment',
-    content: `💰 Invest in Your Future with [DomainName.com]
+    title: 'Domain Name Opportunity',
+    content: `🌐 Domain Name Opportunity: [DomainName.com]
 
-A premium domain that can elevate your brand.
+Ideal for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
 
-DM for details!
+DM for more info!
 
-#DomainInvestment #BusinessGrowth`,
+#DomainOpportunity #BusinessGrowth`,
     platform: 'twitter'
   },
   {
-    id: '30',
+    id: '20',
     category: 'Social Announcement',
-    title: 'Limited Time Domain Offer',
-    content: `⏳ Limited Time Offer: [DomainName.com]
+    title: 'Secure Your Domain Today',
+    content: `🛡️ Secure Your Domain Today: [DomainName.com]
 
-This premium domain is perfect for:
+Perfect for businesses looking to:
+• Establish a strong online presence
+• Build a memorable brand
+
+Contact us for details!
+
+#SecureYourDomain #Branding`,
+    platform: 'twitter'
+  },
+  {
+    id: '21',
+    category: 'Social Announcement',
+    title: 'Premium Domain Alert',
+    content: `🚨 Premium Domain Alert: [DomainName.com]
+
+This domain is perfect for:
 • [Industry Type]
 • [Use Case 1]
 • [Use Case 2]
 
 DM for details!
 
-#DomainOffer #DigitalAssets`,
+#PremiumDomain #BusinessOpportunity`,
+    platform: 'twitter'
+  },
+  {
+    id: '22',
+    category: 'Social Announcement',
+    title: 'Domain Name for Sale',
+    content: `💼 Domain Name for Sale: [DomainName.com]
+
+A premium domain that can elevate your brand.
+
+Contact us for more information!
+
+#DomainForSale #Branding`,
+    platform: 'twitter'
+  },
+  {
+    id: '23',
+    category: 'Social Announcement',
+    title: 'Exclusive Domain Opportunity',
+    content: `🚀 Exclusive Domain Opportunity: [DomainName.com]
+
+Ideal for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
+
+Act fast, this won't last long!
+
+#ExclusiveDomain #BusinessOpportunity`,
+    platform: 'twitter'
+  },
+  {
+    id: '24',
+    category: 'Social Announcement',
+    title: 'Unlock Your Brand Potential',
+    content: `🔑 Unlock Your Brand Potential with [DomainName.com]
+
+This domain is perfect for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
+
+Get in touch today!
+
+#BrandPotential #DomainName`,
+    platform: 'twitter'
+  },
+  {
+    id: '25',
+    category: 'Social Announcement',
+    title: 'Domain Name Opportunity',
+    content: `🌐 Domain Name Opportunity: [DomainName.com]
+
+Ideal for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
+
+DM for more info!
+
+#DomainOpportunity #BusinessGrowth`,
+    platform: 'twitter'
+  },
+  {
+    id: '26',
+    category: 'Social Announcement',
+    title: 'Secure Your Domain Today',
+    content: `🛡️ Secure Your Domain Today: [DomainName.com]
+
+Perfect for businesses looking to:
+• Establish a strong online presence
+• Build a memorable brand
+
+Contact us for details!
+
+#SecureYourDomain #Branding`,
+    platform: 'twitter'
+  },
+  {
+    id: '27',
+    category: 'Social Announcement',
+    title: 'Premium Domain Alert',
+    content: `🚨 Premium Domain Alert: [DomainName.com]
+
+This domain is perfect for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
+
+DM for details!
+
+#PremiumDomain #BusinessOpportunity`,
+    platform: 'twitter'
+  },
+  {
+    id: '28',
+    category: 'Social Announcement',
+    title: 'Domain Name for Sale',
+    content: `💼 Domain Name for Sale: [DomainName.com]
+
+A premium domain that can elevate your brand.
+
+Contact us for more information!
+
+#DomainForSale #Branding`,
+    platform: 'twitter'
+  },
+  {
+    id: '29',
+    category: 'Social Announcement',
+    title: 'Exclusive Domain Opportunity',
+    content: `🚀 Exclusive Domain Opportunity: [DomainName.com]
+
+Ideal for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
+
+Act fast, this won't last long!
+
+#ExclusiveDomain #BusinessOpportunity`,
+    platform: 'twitter'
+  },
+  {
+    id: '30',
+    category: 'Social Announcement',
+    title: 'Premium Domain Alert',
+    content: `🚨 Premium Domain Alert: [DomainName.com]
+
+This domain is perfect for:
+• [Industry Type]
+• [Use Case 1]
+• [Use Case 2]
+
+DM for details!
+
+#PremiumDomain #BusinessOpportunity`,
+    platform: 'twitter'
+  },
+  {
+    id: '31',
+    category: 'Social Announcement',
+    title: 'Premium Industry Domain',
+    content: `🎯 Industry-Specific Domain Alert
+
+[DomainName.com] - Perfect for:
+🏢 [Industry] Leaders
+🌐 Global Expansion
+💼 Enterprise Solutions
+
+Key Features:
+• Industry Authority
+• Brand Recognition
+• Global Reach
+
+DM for Details
+#Domains #Industry #Business`,
+    platform: 'twitter'
+  },
+  {
+    id: '32',
+    category: 'Social Announcement',
+    title: 'Startup Domain Opportunity',
+    content: `🚀 Perfect Startup Domain Available!
+
+[DomainName.com]
+
+Ideal for:
+💡 Tech Innovators
+🎯 Digital Pioneers
+🌱 Growing Startups
+
+Premium Features:
+• Memorable Name
+• Brand-Ready
+• Growth Potential
+
+Limited Time Offer
+DM to Learn More
+
+#StartupLife #Domains`,
+    platform: 'twitter'
+  },
+  {
+    id: '33',
+    category: 'Social Announcement',
+    title: 'Premium Brand Domain',
+    content: `💎 Premium Brand Domain Alert
+
+[DomainName.com]
+
+Perfect for:
+🎯 Brand Building
+🌐 Global Presence
+💫 Market Leadership
+
+Features:
+• One-Word Domain
+• Universal Appeal
+• Instant Recognition
+
+DM for Details
+#Branding #Business #Domains`,
     platform: 'twitter'
   }
 ];
