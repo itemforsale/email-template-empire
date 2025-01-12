@@ -8,7 +8,7 @@ import { WelcomeSection } from "@/components/welcome/WelcomeSection";
 import { SearchBar } from "@/components/search/SearchBar";
 import { CategoryFilter } from "@/components/filters/CategoryFilter";
 import { PlatformFilter } from "@/components/filters/PlatformFilter";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { LogOut, ChevronDown } from "lucide-react";
@@ -161,31 +161,30 @@ export default function Index() {
 
         {/* Privacy Policy Dialog */}
         <Dialog open={privacyDialogOpen} onOpenChange={setPrivacyDialogOpen}>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="max-w-lg">
             <DialogHeader>
-              <DialogTitle>Privacy Policy</DialogTitle>
+              <DialogTitle>Privacy Policy - DNOutreach.com</DialogTitle>
             </DialogHeader>
-            <div className="prose prose-sm dark:prose-invert">
-              <section className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Introduction</h3>
-                <p>
-                  We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we handle your personal information when you visit our website and tell you about your privacy rights.
+            <div className="prose prose-sm dark:prose-invert space-y-4 max-h-[70vh] overflow-y-auto px-2">
+              <section>
+                <h3 className="text-lg font-semibold">Introduction</h3>
+                <p className="text-sm">
+                  DNOutreach.com respects your privacy and is committed to protecting your personal data. This privacy policy explains how we handle your personal information and your privacy rights.
                 </p>
               </section>
 
-              <section className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Information We Collect</h3>
-                <p>We collect and process the following information:</p>
-                <ul className="list-disc pl-6">
+              <section>
+                <h3 className="text-lg font-semibold">Information We Collect</h3>
+                <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>Email address (when you sign up)</li>
                   <li>Usage data (how you interact with our website)</li>
                   <li>Authentication data</li>
                 </ul>
               </section>
 
-              <section className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">How We Use Your Information</h3>
-                <ul className="list-disc pl-6">
+              <section>
+                <h3 className="text-lg font-semibold">How We Use Your Information</h3>
+                <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>To provide and maintain our service</li>
                   <li>To notify you about changes to our service</li>
                   <li>To provide customer support</li>
@@ -193,16 +192,16 @@ export default function Index() {
                 </ul>
               </section>
 
-              <section className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Data Security</h3>
-                <p>
+              <section>
+                <h3 className="text-lg font-semibold">Data Security</h3>
+                <p className="text-sm">
                   We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
                 </p>
               </section>
 
-              <section className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Your Rights</h3>
-                <ul className="list-disc pl-6">
+              <section>
+                <h3 className="text-lg font-semibold">Your Rights</h3>
+                <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>Access your personal data</li>
                   <li>Correct your personal data</li>
                   <li>Request deletion of your personal data</li>
@@ -212,9 +211,12 @@ export default function Index() {
               </section>
 
               <section>
-                <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-                <p>
-                  If you have any questions about this Privacy Policy, please contact us at privacy@example.com
+                <h3 className="text-lg font-semibold">Contact Us</h3>
+                <p className="text-sm">
+                  If you have any questions about this Privacy Policy, please contact us at{" "}
+                  <a href="mailto:dnoutreach@60dna.com" className="text-primary hover:underline">
+                    dnoutreach@60dna.com
+                  </a>
                 </p>
               </section>
             </div>
